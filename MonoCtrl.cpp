@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include<string.h>
 #endif
+#include <filesystem>
 
 #ifdef WIN32
 #pragma comment(lib,"Bcrypt")
@@ -27,8 +28,8 @@
 #include <mono/metadata/mono-debug.h>
 #include <mono/utils/mono-logger.h>
 #include <mono/metadata/threads.h>
-#include <zmq.hpp>
-
+#include <zmq.h>
+#include "rapidjson/document.h"
 #include "MonoCtrl.h"
 
 static MonoClass* OnInstantiateClassPtr(MonoImage* image, const char* namespaceName, const char* className)
@@ -293,6 +294,40 @@ static void GetDataThreadFun (void *pParam)
 	hSockRep = nullptr;
 }
 
+static bool OnGetDeviceCode(const char *szFilePath, std::string &strDevCode)
+{
+	if(!szFilePath)
+		return false;
+
+	std::filesystem::path filePath(szFilePath);
+	std::ifstream streamContext(filePath);
+	if(streamContext.is_open())
+	{
+		std::string ctxJson((std::istreambuf_iterator<char>(streamContext)), std::istreambuf_iterator<char>());
+		rapidjson::Document document;
+		if(document.Parse(ctxJson.c_str()).HasParseError())
+		{
+			std::cout << "json parse error" <<std::endl;
+            return false;
+		}
+		if (!document.IsObject()) 
+        {
+            std::cout << "error json is not object " <<std::endl;
+            return false;
+        }
+
+		 if (document.HasMember("deviceCode") && document["deviceCode"].IsString())
+		 {
+			strDevCode = document["deviceCode"].GetString();
+			return true;
+		 }
+		 	
+	}
+	else
+		std::cout << "file no exist" <<std::endl;
+	return true;	
+}
+
 MonoCtrl::MonoCtrl():m_hMonoDomain(nullptr),m_hClassObj(nullptr)
 {
 }
@@ -352,8 +387,13 @@ bool MonoCtrl::startMono(const char *szFilePath)
 {
 	if(!szFilePath || !m_hClassObj)
 		return false;
-	sendReqData("Start", szFilePath);
-	return true;
+	if(OnGetDeviceCode(szFilePath, m_strDevCode))
+	{
+		sendReqData("Start", szFilePath);
+		return true;
+	}
+	return false;
+
 }
 
 std::string MonoCtrl::getDevData(std::string strStatus)

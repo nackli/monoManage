@@ -16,6 +16,7 @@ public:
 	void unInitMono();
 	std::string getDevLog(const char *);
 	std::string getLastData(const char *);
+	std::string getDevCode() {return m_strDevCode;}
 private:
 	std::string sendReqData(std::string strCmd, std::string strParam);
 private:
@@ -24,4 +25,5 @@ private:
 	void *m_hClassObj;
 	void *m_hContext;
 	void *m_hClientSock;
+	std::string m_strDevCode;
 };
