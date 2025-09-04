@@ -1,0 +1,38 @@
+{
+  "deviceCode": "751-001",
+  "deviceName": "Omron01",
+  "configs": [
+    {
+      "className": "MIOT.Omron.Driver",
+      "connectParam": "{\"port\":\"9600\",\"ip\":\"127.0.0.1\",\"conn_timeout\":\"5000\"}",
+      "protocolName": "Fins Tcp",
+      "tags": [
+        {
+          "calcExpr": "X/10",
+          "changeReport": 0,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "D101",
+          "tagName": "tag1",
+          "tagType": 1
+        }
+      ]
+    },
+    {
+      "className": "MIOT.Omron.Driver",
+      "connectParam": "{\"port\":\"9600\",\"ip\":\"127.0.0.1\",\"conn_timeout\":\"5000\"}",
+      "protocolName": "Fins Tcp",
+      "tags": [
+        {
+          "calcExpr": "X/10",
+          "changeReport": 0,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "D100",
+          "tagName": "tag2",
+          "tagType": 1
+        }
+      ]
+    }
+  ]
+}

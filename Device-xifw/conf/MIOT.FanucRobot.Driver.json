@@ -1,0 +1,173 @@
+{
+	"deviceCode": "FanucRobot",
+	"deviceName": "FanucRobot",
+	"configs": [
+		{
+			"className": "MIOT.FanucRobot.Driver",
+			"protocolName": "FanucRobot",
+			"tags": [
+				{
+					"tagType": "1",
+					"tagName": "Status",
+					"changeReport": 0,
+					"dataType": "int",
+					"readInterval": "1000",
+					"tagAddr": "GetStatus"
+				},
+				{
+					"tagType": "1",
+					"tagName": "Emg",
+					"changeReport": 0,
+					"dataType": "int",
+					"readInterval": "1000",
+					"tagAddr": "ReadRDOAsync(193)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "Alarm",
+					"changeReport": 0,
+					"dataType": "int",
+					"readInterval": "1000",
+					"tagAddr": "ReadRDIAsync(193)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "Mode",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "ReadGOAsync(1)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "J1",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetJoint(1)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "J2",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetJoint(2)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "J3",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetJoint(3)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "J4",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetJoint(4)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "J5",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetJoint(5)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "J6",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetJoint(6)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "UX",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetPos(1)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "UY",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetPos(2)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "UZ",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetPos(3)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "UW",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetPos(4)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "UP",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetPos(5)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "UR",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000",
+					"tagAddr": "GetPos(6)"
+				},
+				{
+					"tagType": "1",
+					"tagName": "AlarmMsg",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetAlarmMsg"
+				},
+				{
+					"tagType": "1",
+					"tagName": "MainPgm",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetMainPgm"
+				},
+				{
+					"tagType": "1",
+					"tagName": "NcStatus",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetNcStatus"
+				},
+				{
+					"tagType": "1",
+					"tagName": "CurSeq",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetCurSeq"
+				}
+			],
+			"connectParam": "{\"ip\":\"127.0.0.1\",\"port\":\"60008\",\"conn_timeout\":\"5000\"}"
+		}
+	]
+}

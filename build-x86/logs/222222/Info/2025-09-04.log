@@ -1,0 +1,22 @@
+2025-09-04 11:36:59.333 --> [ Info ] DeviceName: 222222-1 StatusChanged IsSuccess: True
+
+2025-09-04 11:36:59.479 --> [ Info ]  11:36:59.474 SaveToCache {"values":{"tag0":13404,"tag1":14387,"tag2":14387},"deviceCode":"222222","msgType":"telemetry","ts":1756957019474}
+
+2025-09-04 11:36:59.480 --> [ Info ]  Interval 649.556 ms  Status: True   TotalTime 291.3884 ms  readItemTime 0 ms  Finished  success:3  filed:0 
+
+2025-09-04 11:37:00.388 --> [ Info ]  11:37:00.387 SaveToCache {"values":{"tag0":13405,"tag1":14388,"tag2":14388},"deviceCode":"222222","msgType":"telemetry","ts":1756957020387}
+
+2025-09-04 11:37:00.388 --> [ Info ]  Interval 908.024 ms  Status: True   TotalTime 380.1255 ms  readItemTime 0 ms  Finished  success:3  filed:0 
+
+2025-09-04 11:37:01.414 --> [ Info ]  11:37:01.414 SaveToCache {"values":{"tag0":13407,"tag1":14390,"tag2":14391},"deviceCode":"222222","msgType":"telemetry","ts":1756957021414}
+
+2025-09-04 11:37:01.414 --> [ Info ]  Interval 1026.144 ms  Status: True   TotalTime 406.3566 ms  readItemTime 0 ms  Finished  success:3  filed:0 
+
+2025-09-04 11:37:02.184 --> [ Info ]  11:37:02.174 SaveToCache {"values":{"tag0":13409,"tag1":14392,"tag2":14392},"deviceCode":"222222","msgType":"telemetry","ts":1756957022174}
+
+2025-09-04 11:37:02.184 --> [ Info ]  Interval 769.513 ms  Status: True   TotalTime 180.7224 ms  readItemTime 0 ms  Finished  success:3  filed:0 
+
+2025-09-04 11:37:03.154 --> [ Info ]  11:37:03.154 SaveToCache {"values":{"tag0":13410,"tag1":14393,"tag2":14393},"deviceCode":"222222","msgType":"telemetry","ts":1756957023154}
+
+2025-09-04 11:37:03.154 --> [ Info ]  Interval 970.11 ms  Status: True   TotalTime 147.3632 ms  readItemTime 0 ms  Finished  success:3  filed:0 
+

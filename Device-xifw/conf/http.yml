@@ -1,0 +1,113 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: minifi-test04
+  comment: ''
+Core Properties:
+  flow controller graceful shutdown period: 10 sec
+  flow service write delay interval: 500 ms
+  administrative yield duration: 30 sec
+  bored yield duration: 10 millis
+  max concurrent threads: 1
+  variable registry properties: ''
+FlowFile Repository:
+  implementation: org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
+  partitions: 256
+  checkpoint interval: 2 mins
+  always sync: false
+  Swap:
+    threshold: 20000
+    in period: 5 sec
+    in threads: 1
+    out period: 5 sec
+    out threads: 4
+Content Repository:
+  implementation: org.apache.nifi.controller.repository.FileSystemRepository
+  content claim max appendable size: 10 MB
+  content claim max flow files: 100
+  content repository archive enabled: false
+  content repository archive max retention period: 12 hours
+  content repository archive max usage percentage: 50%
+  always sync: false
+Provenance Repository:
+  provenance rollover time: 1 min
+  implementation: org.apache.nifi.provenance.WriteAheadProvenanceRepository
+  provenance index shard size: 500 MB
+  provenance max storage size: 1 GB
+  provenance max storage time: 24 hours
+  provenance buffer size: 10000
+Component Status Repository:
+  buffer size: 1440
+  snapshot frequency: 1 min
+Security Properties:
+  keystore: ''
+  keystore type: ''
+  keystore password: ''
+  key password: ''
+  truststore: ''
+  truststore type: ''
+  truststore password: ''
+  ssl protocol: ''
+  Sensitive Props:
+    key: ''
+    algorithm: NIFI_PBKDF2_AES_GCM_256
+Processors:
+- name: process_http_request
+  id: 17961dcc-d75d-38d1-0000-000000000000
+  class: org.apache.nifi.minifi.processors.HandleHttpRequest
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    Base Path: api/test
+    Http Context Service: c32c4d44-f65f-3ad7-0000-000000000000
+    Hostname: 10.90.254.215
+    Listening Port: '8011'
+- name: process_http_response
+  id: adde3e8a-9772-39e5-0000-000000000000
+  class: org.apache.nifi.minifi.processors.HandleHttpResponse
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  - success
+  Properties:
+    Http Context Service: c32c4d44-f65f-3ad7-0000-000000000000
+    Status Code: '200'
+Controller Services:
+- name: HttpContextControllerService
+  id: c32c4d44-f65f-3ad7-0000-000000000000
+  type: org.apache.nifi.minifi.processors.HttpContextControllerService
+  Properties:
+    Bucket Number: '1234'
+Process Groups: [
+  ]
+Input Ports: [
+  ]
+Output Ports: [
+  ]
+Funnels: [
+  ]
+Connections:
+- name: 处理http请求/success/更新属性
+  id: 6d62312d-5c37-3def-0000-000000000000
+  source id: 17961dcc-d75d-38d1-0000-000000000000
+  source relationship names:
+  - success
+  destination id: adde3e8a-9772-39e5-0000-000000000000
+  max work queue size: 10000
+  max work queue data size: 1 GB
+  flowfile expiration: 0 sec
+  queue prioritizer class: ''
+Remote Process Groups: [
+  ]
+NiFi Properties Overrides: {
+  }

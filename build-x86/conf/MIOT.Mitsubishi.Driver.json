@@ -1,0 +1,21 @@
+{
+  "deviceCode": "Mitsubishi01",
+  "deviceName": "Mitsubishi01",
+  "configs": [
+    {
+      "className": "MIOT.Mitsubishi.Driver",
+      "protocolName": "MC(Binary)",
+      "tags": [
+        {
+          "tagType": "1",
+          "tagName": "D100",
+          "changeReport": 0,
+          "dataType": "int16",
+          "readInterval": "1000",
+          "tagAddr": "D100"
+        }
+      ],
+      "connectParam": "{\"ip\":\"10.90.252.39\",\"port\":\"6000\",\"Rack\":\"0\",\"conn_timeout\":\"5000\"}"
+    }
+  ]
+}

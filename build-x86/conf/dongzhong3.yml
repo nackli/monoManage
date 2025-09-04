@@ -1,0 +1,174 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: c071203
+  comment: ''
+Core Properties:
+  flow controller graceful shutdown period: 10 sec
+  flow service write delay interval: 500 ms
+  administrative yield duration: 30 sec
+  bored yield duration: 10 millis
+  max concurrent threads: 1
+  variable registry properties: ''
+FlowFile Repository:
+  implementation: org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
+  partitions: 256
+  checkpoint interval: 2 mins
+  always sync: false
+  Swap:
+    threshold: 20000
+    in period: 5 sec
+    in threads: 1
+    out period: 5 sec
+    out threads: 4
+Content Repository:
+  implementation: org.apache.nifi.controller.repository.FileSystemRepository
+  content claim max appendable size: 10 MB
+  content claim max flow files: 100
+  content repository archive enabled: false
+  content repository archive max retention period: 12 hours
+  content repository archive max usage percentage: 50%
+  always sync: false
+Provenance Repository:
+  provenance rollover time: 1 min
+  implementation: org.apache.nifi.provenance.WriteAheadProvenanceRepository
+  provenance index shard size: 500 MB
+  provenance max storage size: 1 GB
+  provenance max storage time: 24 hours
+  provenance buffer size: 10000
+Component Status Repository:
+  buffer size: 1440
+  snapshot frequency: 1 min
+Security Properties:
+  keystore: ''
+  keystore type: ''
+  keystore password: ''
+  key password: ''
+  truststore: ''
+  truststore type: ''
+  truststore password: ''
+  ssl protocol: ''
+  Sensitive Props:
+    key: ''
+    algorithm: NIFI_PBKDF2_AES_GCM_256
+Processors:
+- id: fd895e79-4a72-3211-0000-000000000000
+  name: http调用任务接口获取焊机模式
+  class: org.apache.nifi.minifi.processors.InvokeHTTP
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 2000 ms
+  auto-terminated relationships list:
+  - success
+  - retry
+  - no retry
+  - failure
+  Properties:
+    HTTP Method: GET
+    Remote URL: http://10.90.18.115:8890/api/miot/getByEquipmentCode?eqCode=754-006
+- id: 42e43551-e516-300d-0000-000000000000
+  name: 执行JsonPath查询
+  class: org.apache.nifi.minifi.processors.EvaluateJsonPath
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  Properties:
+    Destination: flowfile-attribute
+    taskId: /task_id
+    weldMode: /weld_mode
+- id: 9a9296f4-dbe1-3678-0000-000000000000
+  name: 拆分json
+  class: org.apache.nifi.minifi.processors.SplitJson
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  - original
+  Properties:
+    JsonPath Expression: /
+- id: f3ea964b-28b0-3f8f-0000-000000000000
+  name: 根据内容路由
+  class: org.apache.nifi.minifi.processors.RouteOnContent
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    hasTask: task_id
+- id: b176d300-e53c-3e97-0000-000000000000
+  name: 缓存焊接模式和任务id
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null 
+    taskId: taskId
+    weldMode: weldMode
+Controller Services:
+- id: fd0bb6e7-5bd7-3966-0000-000000000000
+  name: MemoryMapControllerService
+  type: org.apache.nifi.minifi.extensions.cache.MemoryMapControllerService
+  Properties:
+    Bucket Num: '31'
+Process Groups: [
+  ]
+Input Ports: [
+  ]
+Output Ports: [
+  ]
+Funnels: [
+  ]
+Connections:
+- id: 870281b6-6085-30cc-0000-000000000000
+  name: http调用任务接口获取焊机模式/response/根据内容路由
+  source id: fd895e79-4a72-3211-0000-000000000000
+  source relationship names:
+  - response
+  destination id: f3ea964b-28b0-3f8f-0000-000000000000
+- id: e7c30237-0b87-3636-0000-000000000000
+  name: 根据内容路由/hasTask/拆分json
+  source id: f3ea964b-28b0-3f8f-0000-000000000000
+  source relationship names:
+  - hasTask
+  destination id: 9a9296f4-dbe1-3678-0000-000000000000
+- id: e119e241-3664-388d-0000-000000000000
+  name: 根据内容路由/unmatched/缓存焊接模式和任务id
+  source id: f3ea964b-28b0-3f8f-0000-000000000000
+  source relationship names:
+  - unmatched
+  destination id: b176d300-e53c-3e97-0000-000000000000
+- id: 1fe6ba1e-3560-38ec-0000-000000000000
+  name: 拆分json/split/执行JsonPath查询
+  source id: 9a9296f4-dbe1-3678-0000-000000000000
+  source relationship names:
+  - split
+  destination id: 42e43551-e516-300d-0000-000000000000
+- id: 3c1fc64b-5730-3702-0000-000000000000
+  name: 执行JsonPath查询/success/缓存焊接模式和任务id
+  source id: 42e43551-e516-300d-0000-000000000000
+  source relationship names:
+  - success
+  destination id: b176d300-e53c-3e97-0000-000000000000  
+Remote Process Groups: [
+  ]
+NiFi Properties Overrides: {
+  }

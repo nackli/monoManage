@@ -1,0 +1,10 @@
+.vs/
+**/x64/
+**/x86/
+**/build*/
+**/data/
+**/Debug/
+**/Release/
+**/group2_3/
+FileQueueTest/data/
+*:Zone.Identifier

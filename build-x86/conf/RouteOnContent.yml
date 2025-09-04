@@ -1,0 +1,67 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: MiNiFi Flow
+Processors:
+- id: 8036fb8c-5c76-3f0a-0000-000000000000
+  name: 定时http获取GatewayId
+  class: org.apache.nifi.minifi.processors.InvokeHTTP
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 1000 ms
+  auto-terminated relationships list:
+  - success
+  - retry
+  - no retry
+  - failure
+  Properties:
+    HTTP Method: GET
+    Remote URL: http://127.0.0.1:8099/bootstrapConf
+- id: ac330968-0e9c-307d-0000-000000000000
+  name: 根据内容路由
+  class: org::apache::nifi::minifi::processors.RouteOnContent
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - unmatched
+  Properties:
+    hasId: miaaa
+- id: 97052b82-dad9-3ba0-0000-000000000000
+  name: 缓存GatewayId
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'true'
+    Cache Expire Attrs: gatewayId
+Controller Services:
+- id: fd0bb6e7-5bd7-3966-0000-000000000000
+  name: MemoryMapControllerService
+  type: org.apache.nifi.minifi.extensions.cache.MemoryMapControllerService
+  Properties:
+    Bucket Num: '31'
+Controller Services: []
+Remote Process Groups: []
+Connections:
+- id: e93c14c4-8003-3096-0000-000000000000
+  name: 定时http获取GatewayId/response/根据内容路由
+  source id: 8036fb8c-5c76-3f0a-0000-000000000000
+  source relationship names:
+  - response
+  destination id: ac330968-0e9c-307d-0000-000000000000  
+- id: a484010a-29ac-3ac3-0000-000000000000
+  name: 根据内容路由/hasId/缓存GatewayId
+  source id: ac330968-0e9c-307d-0000-000000000000
+  source relationship names:
+  - hasId
+  destination id: 97052b82-dad9-3ba0-0000-000000000000  

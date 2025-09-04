@@ -1,0 +1,129 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: MiNiFi Flow
+Processors:
+- name: ModbusTest
+  id: 2f2a3b47-f5ba-49f6-82b5-bc1c86b96e27
+  class: org.apache.nifi.minifi.processors.GetModbusTCP
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 1000 ms
+  auto-terminated relationships list:
+    - failure
+  Properties:
+    Host: 10.90.18.93
+    Port: 502
+- name: ExecuteScript
+  id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f999
+  class: org.apache.nifi.minifi.processors.ExecuteScript
+  scheduling strategy: EVENT_DRIVEN
+  auto-terminated relationships list:
+  - failure
+  Properties:   
+    Script Engine: lua
+    Script File: 
+    Script Body: |-
+        read_callback = {}
+        write_callback = {}
+
+        function read_callback.process(self, input_stream)
+            self['content'] = input_stream:read(0)
+            return #self['content']
+        end
+
+        function write_callback.process(self, output_stream)
+            output_stream:write(self['content'])
+            return #self['content']
+        end
+        
+        function strToTable(str)
+            -- 匹配Json Key的正则表达式
+            local pattern = "\"[%w]+\":"
+            -- 把匹配到的Key的引号去掉
+            string.gsub(str, pattern, function(v)
+                if string.find(str, v) then
+                    str = string.gsub(str, v, string.gsub(v, "\"", ""))
+                end
+            end)
+            -- 继续替换冒号
+            str = string.gsub(str, ":", "=")
+            -- 下面两行替换方括号
+            str = string.gsub(str, "%[", "{")
+            str = string.gsub(str, "%]", "}")
+            -- 到了这一步 str就是一个标准的Lua表了
+            -- 把luaTable返回
+            local data = "return " .. str
+            -- 调用loadstring得到一个Table
+            local res = loadstring(data)()
+            return res
+        end
+        
+        function table2json(t)
+          local function serialize(tbl)
+            local tmp = {}
+            for k, v in pairs(tbl) do
+              local k_type = type(k)
+              local v_type = type(v)
+              local key = (k_type == "string" and '"' .. k .. '":') or (k_type == "number" and "")
+              local value =
+                (v_type == "table" and serialize(v)) or (v_type == "boolean" and tostring(v)) or
+                (v_type == "string" and '"' .. v .. '"') or
+                (v_type == "number" and v)
+              tmp[#tmp + 1] = key and value and tostring(key) .. tostring(value) or nil
+            end
+            if table.maxn(tbl) == 0 then
+              return "{" .. table.concat(tmp, ",") .. "}"
+            else
+              return "[" .. table.concat(tmp, ",") .. "]"
+            end
+          end
+          assert(type(t) == "table")
+          return serialize(t)
+        end
+
+        function onTrigger(context, session)
+            flow_file = session:get()
+
+            if flow_file ~= nil then
+                session:read(flow_file, read_callback)
+                content = strToTable(read_callback['content'])
+                maxV = math.max(content['data1'], content['data2'], content['data3'])
+                minV = math.min(content['data1'], content['data2'], content['data3'])
+      
+                result = {minV=minV,maxV=maxV}
+                write_callback['content']=table2json(result)
+                
+                log:info('>>>>>>>>>>>>>>>@@@@@@@@@@@ :' .. type(write_callback['content']) .. " value: " .. write_callback['content'])
+                
+                session:write(flow_file, write_callback)
+                flow_file:addAttribute('lua_timestamp', tostring(os.time()))
+                session:transfer(flow_file, REL_SUCCESS)
+            end
+        end
+    Module Directory:
+- name: PublishData
+  id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f848
+  class: org.apache.nifi.minifi.processors.PublishKafka
+  scheduling strategy: EVENT_DRIVEN
+  auto-terminated relationships list:
+  - success
+  - failure
+  Properties:
+    Batch Size: '10'
+    Client Name: mcpp-client
+    Compress Codec: none
+    Delivery Guarantee: '1'
+    Known Brokers: 10.90.15.107:9092
+    Message Timeout: 12 sec
+    Request Timeout: 10 sec
+    Topic Name: mcpp001
+Connections:
+- name: GetModbusTCP/success/ExecuteScript
+  source id: 2f2a3b47-f5ba-49f6-82b5-bc1c86b96e27
+  source relationship name: success
+  destination id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f999
+- name: ExecuteScript/success/PublishKafka
+  source id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f999
+  source relationship name: success
+  destination id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f848
+Controller Services: []
+Remote Process Groups: []

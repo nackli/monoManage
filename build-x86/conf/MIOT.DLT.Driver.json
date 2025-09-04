@@ -1,0 +1,22 @@
+{
+  "deviceCode": "DLT001",
+  "deviceName": "DLT",
+  "configs": [
+    {
+      "className": "MIOT.DLT.Driver",
+      "connectParam": "{\"port\":\"2000\",\"ip\":\"127.0.0.1\",\"conn_timeout\":\"5000\"}",
+      "protocolName": "DLT645 OverTcp",
+      "tags": [
+        {
+          "calcExpr": "X/10",
+          "changeReport": 0,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "00-00-00-00",
+          "tagName": "tag1",
+          "tagType": 1
+        }
+      ]
+    }
+  ]
+}

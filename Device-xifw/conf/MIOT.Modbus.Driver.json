@@ -1,0 +1,107 @@
+{
+	"configs": [
+		{
+			"className": "MIOT.Modbus.Driver",
+			"connectParam": "{\"port\":\"502\",\"ip\":\"10.90.254.231\",\"station_id\":\"1\",\"start_zero\":true,\"batchRead\":false,\"conn_timeout\":\"5000\"}",
+			"protocolId": 1000001,
+			"protocolName": "Modbus Tcp",
+			"tags": [
+				{
+					"calcExpr": "",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": 3000,
+					"tagAddr": "1(len=10)",
+					"tagName": "point1",
+					"tagType": 1
+				},
+				{
+					"calcExpr": "point1[0]/10",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": 3000,
+					"tagAddr": "2",
+					"tagName": "point2",
+					"tagType": 2
+				},
+				{
+					"calcExpr": "point1[1]/100",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": 3000,
+					"tagAddr": "3",
+					"tagName": "point3",
+					"tagType": 2
+				},
+				{
+					"calcExpr": "point1[2]/100",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": 3000,
+					"tagAddr": "4",
+					"tagName": "point4",
+					"tagType": 2
+				},
+				{
+					"calcExpr": "point1[3]/100",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": 3000,
+					"tagAddr": "5",
+					"tagName": "point5",
+					"tagType": 2
+				}
+			]
+		}
+	],
+	"deviceCode": "modbus10",
+	"deviceName": "modbus10"
+}
+//{
+//  "configs": [
+//    {
+//      "className": "MIOT.Modbus.Driver",
+//      "connectParam": "{\"collectionType\":1,\"productId\":\"1746720828506157057\",\"port\":\"502\",\"ip\":\"127.0.0.1\",\"station_id\":\"1\",\"batchRead\":false,\"isStringReverse\":false,\"start_zero\":true,\"endian\":\"CDAB\",\"conn_timeout\":\"5000\"}",
+//      "protocolName": "Modbus Tcp",
+//      "tags": [
+//        {
+//          "calcExpr": "",
+//          "changeReport": 0,
+//          "dataType": "int16",
+//          "readInterval": 1000,
+//          "tagAddr": "0",
+//          "tagName": "N.EF-7-02#InstantFlow",
+//          "tagType": 1
+//        },
+//        {
+//          "calcExpr": "",
+//          "changeReport": 0,
+//          "dataType": "int16",
+//          "readInterval": 1000,
+//          "tagAddr": "1",
+//          "tagName": "N.EF-7-02#AccrueHeatflow",
+//          "tagType": 1
+//        },
+//        {
+//          "calcExpr": "[N.EF-7-02#AccrueHeatflow] + [N.EF-7-02#InstantFlow]",
+//          "changeReport": 0,
+//          "dataType": "int16",
+//          "readInterval": 1000,
+//          "tagAddr": "",
+//          "tagName": "aa",
+//          "tagType": 2
+//        },
+//        {
+//          "calcExpr": "",
+//          "changeReport": 0,
+//          "dataType": "int16",
+//          "readInterval": 1000,
+//          "tagAddr": "4",
+//          "tagName": "name",
+//          "tagType": 1
+//        }
+//      ]
+//    }
+//  ],
+//  "deviceCode": "867"
+//}

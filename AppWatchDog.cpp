@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <string.h>
 #include "AppWatchDog.h"
+
 #define DEV_WATCH_DOG "/dev/watchdog"
 AppWatchDog::AppWatchDog()
 {

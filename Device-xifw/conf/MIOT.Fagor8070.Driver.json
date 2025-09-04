@@ -1,0 +1,222 @@
+{
+	"deviceCode": "FagorTest",
+	"deviceName": "FagorTest",
+	"configs": [
+		{
+			"className": "MIOT.Fagor8070.Driver",
+			"protocolName": "8070",
+			"tags": [
+				{
+					"tagType": "3",
+					"tagAddr": "GetAxis",
+					"readInterval": "1000",
+					"dataType": "int16",
+					"changeReport": 0,
+					"tagName": "Axis"
+				},
+				{
+					"tagType": "1",
+					"changeReport": 0,
+					"tagName": "Status",
+					"dataType": "int16",
+					"readInterval": " 1000",
+					"tagAddr": "GetStatus"
+				},
+				{
+					"tagType": "1",
+					"tagAddr": "GetAlarm",
+					"readInterval": "1000",
+					"dataType": "int16",
+					"changeReport": 0,
+					"tagName": "Alarm"
+				},
+				{
+					"tagType": "1",
+					"tagAddr": "GetMode",
+					"tagName": "Mode",
+					"changeReport": 0,
+					"dataType": "int16",
+					"readInterval": "1000"
+				},
+				{
+					"tagType": "3",
+					"tagAddr": "GetAxisName",
+					"dataType": "int16",
+					"changeReport": 0,
+					"tagName": "AxisName",
+					"readInterval": "1000"
+				},
+				{
+					"tagType": "1",
+					"tagName": "MacPos",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetMacPos"
+				},
+				{
+					"tagType": "1",
+					"tagName": "AbsPos",
+					"tagAddr": "GetAbsPos",
+					"readInterval": "1000",
+					"dataType": "string",
+					"changeReport": 0
+				},
+				{
+					"tagType": "1",
+					"tagName": "RelPos",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetRelPos"
+				},
+				{
+					"tagType": "1",
+					"tagName": "RemPos",
+					"changeReport": 0,
+					"tagAddr": "GetRemPos",
+					"readInterval": "1000",
+					"dataType": "string"
+				},
+				{
+					"tagType": "1",
+					"tagName": "NcStatus",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetNcStatus"
+				},
+				{
+					"tagType": "1",
+					"tagName": "MainPgm",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetMainPgm"
+				},
+				//{
+				//	"tagType": "1",
+				//	"tagName": "CurPgm",
+				//	"changeReport": 0,
+				//	"dataType": "string",
+				//	"readInterval": "1000",
+				//	"tagAddr": "GetCurPgm"
+				//},
+				{
+					"tagType": "1",
+					"tagName": "CutTime",
+					"tagAddr": "GetCutTime",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000"
+				},
+				{
+					"tagType": "1",
+					"tagName": "CysSec",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetCysSec"
+				},
+				{
+					"tagType": "1",
+					"tagName": "CurSeq",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000",
+					"tagAddr": "GetCurSeq"
+				},
+				{
+					"tagType": "1",
+					"tagName": "PartCnt",
+					"changeReport": 0,
+					"dataType": "int32",
+					"tagAddr": "GetPartCnt",
+					"readInterval": "1000"
+				},
+				{
+					"tagType": "1",
+					"tagName": "TCode",
+					"changeReport": 0,
+					"dataType": "string",
+					"tagAddr": "GetTCode",
+					"readInterval": "1000"
+				},
+				{
+					"tagType": "1",
+					"tagAddr": "GetOvFeed",
+					"tagName": "OvFeed",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000"
+				},
+				{
+					"tagType": "1",
+					"tagName": "OvSpin",
+					"tagAddr": "GetOvSpin",
+					"dataType": "float",
+					"readInterval": "1000",
+					"changeReport": 0
+				},
+				{
+					"tagType": "1",
+					"tagAddr": "GetActFeed",
+					"tagName": "ActFeed",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000"
+				},
+				//{
+				//	"tagType": "1",
+				//	"tagAddr": "GetSetFeed",
+				//	"tagName": "SetFeed",
+				//	"changeReport": 0,
+				//	"dataType": "float",
+				//	"readInterval": "1000"
+				//},
+				{
+					"tagType": "1",
+					"tagAddr": "GetActSpeed",
+					"tagName": "ActSpeed",
+					"changeReport": 0,
+					"dataType": "float",
+					"readInterval": "1000"
+				},
+				//{
+				//	"tagType": "1",
+				//	"tagAddr": "GetSetSpeed",
+				//	"tagName": "SetSpeed",
+				//	"readInterval": "1000",
+				//	"dataType": "float",
+				//	"changeReport": 0
+				//},
+				{
+					"tagType": "1",
+					"tagAddr": "GetSvLoad",
+					"readInterval": "1000",
+					"dataType": "string",
+					"changeReport": 0,
+					"tagName": "SvLoad"
+				},
+				{
+					"tagType": "1",
+					"tagAddr": "GetSpinLoad",
+					"tagName": "SpinLoad",
+					"changeReport": 0,
+					"dataType": "string",
+					"readInterval": "1000"
+				}
+				//,
+				//{
+				//	"tagType": "1",
+				//	"tagAddr": "GetAlarmMsg",
+				//	"tagName": "AlarmMsg",
+				//	"changeReport": 0,
+				//	"dataType": "string",
+				//	"readInterval": "1000"
+				//}
+			],
+			"connectParam": "{\"ip\":\"127.0.0.1\",\"port\":\"8001\",\"conn_timeout\":\"5000\"}"
+		}
+	]
+}

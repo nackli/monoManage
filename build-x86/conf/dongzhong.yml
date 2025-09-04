@@ -1,0 +1,532 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: c071203
+  comment: ''
+Core Properties:
+  flow controller graceful shutdown period: 10 sec
+  flow service write delay interval: 500 ms
+  administrative yield duration: 30 sec
+  bored yield duration: 10 millis
+  max concurrent threads: 1
+  variable registry properties: ''
+FlowFile Repository:
+  implementation: org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
+  partitions: 256
+  checkpoint interval: 2 mins
+  always sync: false
+  Swap:
+    threshold: 20000
+    in period: 5 sec
+    in threads: 1
+    out period: 5 sec
+    out threads: 4
+Content Repository:
+  implementation: org.apache.nifi.controller.repository.FileSystemRepository
+  content claim max appendable size: 10 MB
+  content claim max flow files: 100
+  content repository archive enabled: false
+  content repository archive max retention period: 12 hours
+  content repository archive max usage percentage: 50%
+  always sync: false
+Provenance Repository:
+  provenance rollover time: 1 min
+  implementation: org.apache.nifi.provenance.WriteAheadProvenanceRepository
+  provenance index shard size: 500 MB
+  provenance max storage size: 1 GB
+  provenance max storage time: 24 hours
+  provenance buffer size: 10000
+Component Status Repository:
+  buffer size: 1440
+  snapshot frequency: 1 min
+Security Properties:
+  keystore: ''
+  keystore type: ''
+  keystore password: ''
+  key password: ''
+  truststore: ''
+  truststore type: ''
+  truststore password: ''
+  ssl protocol: ''
+  Sensitive Props:
+    key: ''
+    algorithm: NIFI_PBKDF2_AES_GCM_256
+Processors:
+- id: fd895e79-4a72-3211-0000-000000000000
+  name: http调用任务接口获取焊机模式
+  class: org.apache.nifi.minifi.processors.InvokeHTTP
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 5 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  - retry
+  - no retry
+  - failure
+  Properties:
+    HTTP Method: GET
+    Remote URL: http://10.90.18.107:8888/api/miot/getByEquipmentCode?eqCode=EQ001
+- id: 6c0ee6f7-019a-331c-0000-000000000000
+  name: 从缓存读取数据到属性
+  class: org.apache.nifi.minifi.extensions.cache.GetMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null
+    gatewayId: gatewayId
+    taskId: taskId
+    userWeldMode: userWeldMode
+    weldMode: weldMode
+- id: 19583cc0-0014-31f5-0000-000000000000
+  name: 处理http请求
+  class: org.apache.nifi.minifi.processors.ListenHTTP
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    Base Path: getTelemetry
+    Listening Port: 8100
+- id: 8036fb8c-5c76-3f0a-0000-000000000000
+  name: 定时http获取GatewayId
+  class: org.apache.nifi.minifi.processors.InvokeHTTP
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 30000 ms
+  auto-terminated relationships list:
+  - success
+  - retry
+  - no retry
+  - failure
+  Properties:
+    HTTP Method: GET
+    Remote URL: http://127.0.0.1:8099/bootstrapConf
+- id: 9b78324c-cbfb-3b50-0000-000000000000
+  name: 定时http获取焊接模式
+  class: org.apache.nifi.minifi.processors.InvokeHTTP
+  max concurrent tasks: 1
+  scheduling strategy: CRON_DRIVEN
+  scheduling period: 0/5 * * * * ? *
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  - retry
+  - no retry
+  - failure
+  Properties:
+    HTTP Method: GET
+    Remote URL: http://10.90.18.189:8005/api/getHasTaskWeldingMode
+- id: 4eca931a-ced3-37ac-0000-000000000000
+  name: 定时从缓存中读取焊机编号
+  class: org.apache.nifi.minifi.extensions.cache.GetMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 5000 ms
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null
+    deviceCode: deviceCode
+- id: 42e43551-e516-300d-0000-000000000000
+  name: 执行JsonPath查询
+  class: org.apache.nifi.minifi.processors.EvaluateJsonPath
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  Properties:
+    Destination: flowfile-attribute
+    taskId: /task_id
+    weldMode: /weld_mode
+- id: 86ce93ac-4c08-3fac-0000-000000000000
+  name: 执行JsonPath查询
+  class: org.apache.nifi.minifi.processors.EvaluateJsonPath
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  Properties:
+    Destination: flowfile-attribute
+    gatewayId: /data/miotId
+- id: a7325b1f-f370-372a-0000-000000000000
+  name: 执行JsonPath查询
+  class: org.apache.nifi.minifi.processors.EvaluateJsonPath
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  Properties:
+    Destination: flowfile-attribute
+    userWeldMode: /weldMode
+- id: 9a9296f4-dbe1-3678-0000-000000000000
+  name: 拆分json
+  class: org.apache.nifi.minifi.processors.SplitJson
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  - original
+  Properties:
+    JsonPath Expression: /
+- id: 44e88fd0-a833-3ee6-0000-000000000000
+  name: Modbus采集数据
+  class: org.apache.nifi.minifi.processors.GetModbusTCP
+  max concurrent tasks: 1
+  scheduling strategy: CRON_DRIVEN
+  scheduling period: 0/1 * * * * ?
+  penalization period: 5 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  Properties:
+    Host: 10.90.18.93
+    Port: 502
+    Modbus Addr: 0
+    Modbus Nb: 2
+    Device Code: EQ001
+- name: FixedTimeWindow
+  id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f848
+  class: org.apache.nifi.minifi.processors.FixedTimeWindow
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  - empty
+  Properties:
+    Time Window MS: 1000
+- id: f88b3c9f-522d-3678-0000-000000000000
+  name: 推送平台Kafka
+  class: org.apache.nifi.minifi.processors.PublishKafka
+  max concurrent tasks: 10
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  Properties:
+    Batch Size: '10'
+    Client Name: mcpp-client
+    Compress Codec: none
+    Delivery Guarantee: '1'
+    Known Brokers: 10.90.15.107:19092
+    Message Timeout: 12 sec
+    Request Timeout: 10 sec
+    Topic Name: miotdata111
+- id: 7b8d8c0c-d2ed-3cc3-0000-000000000000
+  name: 更新属性
+  class: org.apache.nifi.minifi.processors.UpdateAttribute
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 25000
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    eqCode: ${http.param.eqCode}
+    ts: ${http.param.ts}
+- id: f3ea964b-28b0-3f8f-0000-000000000000
+  name: 根据内容路由
+  class: org.apache.nifi.minifi.processors.RouteOnContent
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    hasTask: task_id
+- id: 92c7579b-71a8-3289-0000-000000000000
+  name: 根据消息类型路由
+  class: org.apache.nifi.minifi.processors.RouteOnAttribute
+  max concurrent tasks: 10
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 25000
+  auto-terminated relationships list:
+  - unmatched
+  - failure
+  Properties:
+    other: ${msgType:equals('other')}
+    telemetry: ${msgType:equals('telemetry')}
+- id: 97052b82-dad9-3ba0-0000-000000000000
+  name: 缓存GatewayId
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null 
+    gatewayId: gatewayId
+- id: a3997b1c-ad32-3678-0000-000000000000
+  name: 缓存焊接模式
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null 
+    userWeldMode: userWeldMode
+- id: b176d300-e53c-3e97-0000-000000000000
+  name: 缓存焊接模式和任务id
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null 
+    taskId: taskId
+    weldMode: weldMode
+- id: f09c69e6-86c1-384e-0000-000000000000
+  name: 缓存焊机编号
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'false'
+    Cache Expire Attrs: null 
+    deviceCode: deviceCode
+- id: 2960c69e-797f-33f0-0000-000000000000
+  name: 缓存遥测数据
+  class: org.apache.nifi.minifi.extensions.cache.PutMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'true'
+    Cache Expire Attrs: deviceCode 
+- id: 3d20e5d2-f1e1-34e1-0000-000000000000
+  name: 获取缓存的遥测数据
+  class: org.apache.nifi.minifi.extensions.cache.GetMemoryMap
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list: [
+    ]
+  Properties:
+    Memory Map Service: fd0bb6e7-5bd7-3966-0000-000000000000
+    Cache Expire: 'true'
+    Cache Expire Attrs: eqCode 
+- id: d72c80f7-70c9-3716-0000-000000000000
+  name: 计算采集数据
+  class: org.apache.nifi.minifi.extensions.customized.DongZhong
+  max concurrent tasks: 10
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure 
+Controller Services:
+- id: fd0bb6e7-5bd7-3966-0000-000000000000
+  name: MemoryMapControllerService
+  type: org.apache.nifi.minifi.extensions.cache.MemoryMapControllerService
+  Properties:
+    Bucket Num: '31'
+Process Groups: [
+  ]
+Input Ports: [
+  ]
+Output Ports: [
+  ]
+Funnels: [
+  ]
+Connections:
+- id: 68555881-a7a4-31f3-0000-000000000000
+  name: Modbus采集数据/success/FixedTimeWindow
+  source id: 44e88fd0-a833-3ee6-0000-000000000000
+  source relationship name: success
+  destination id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f848
+- id: 68556881-a7a4-31f3-0000-000000000000
+  name: FixedTimeWindow/success/缓存焊机编号
+  source id: 8a534b4a-2b4a-4e1e-ab07-8a09fa08f848
+  source relationship name: success
+  destination id: f09c69e6-86c1-384e-0000-000000000000
+- id: 75855881-a7a4-31f3-0000-000000000000
+  name: 缓存焊机编号/success/从缓存读取数据到属性
+  source id: f09c69e6-86c1-384e-0000-000000000000
+  source relationship name: success
+  destination id: 6c0ee6f7-019a-331c-0000-000000000000
+- id: 58d1e881-a7a4-31f3-0000-000000000000
+  name: 从缓存读取数据到属性/success/计算采集数据
+  source id: 6c0ee6f7-019a-331c-0000-000000000000
+  source relationship names: success
+  destination id: d72c80f7-70c9-3716-0000-000000000000
+- id: ce1a001d-2031-3ca3-0000-000000000000
+  name: 计算采集数据/success/根据消息类型路由
+  source id: d72c80f7-70c9-3716-0000-000000000000
+  source relationship names: success
+  destination id: 92c7579b-71a8-3289-0000-000000000000
+- id: 046ff683-7550-305e-0000-000000000000
+  name: 根据消息类型路由/other/推送平台Kafka
+  source id: 92c7579b-71a8-3289-0000-000000000000
+  source relationship names:
+  - other
+  - telemetry
+  destination id: f88b3c9f-522d-3678-0000-000000000000
+- id: a07cb1c0-60e8-3e2c-0000-000000000000
+  name: 根据消息类型路由/telemetry/缓存遥测数据
+  source id: 92c7579b-71a8-3289-0000-000000000000
+  source relationship names:
+  - telemetry
+  destination id: 2960c69e-797f-33f0-0000-000000000000
+- id: 783ba1e2-c413-3f9f-0000-000000000000
+  name: 处理http请求/success/更新属性
+  source id: 19583cc0-0014-31f5-0000-000000000000
+  source relationship names:
+  - success
+  destination id: 7b8d8c0c-d2ed-3cc3-0000-000000000000
+- id: 2ff87b4e-d953-3525-0000-000000000000
+  name: 更新属性/success/获取缓存的遥测数据
+  source id: 7b8d8c0c-d2ed-3cc3-0000-000000000000
+  source relationship names:
+  - success
+  destination id: 3d20e5d2-f1e1-34e1-0000-000000000000  
+- id: e93c14c4-8003-3096-0000-000000000000
+  name: 定时http获取GatewayId/response/执行JsonPath查询
+  source id: 8036fb8c-5c76-3f0a-0000-000000000000
+  source relationship names:
+  - response
+  destination id: 86ce93ac-4c08-3fac-0000-000000000000  
+- id: a484010a-29ac-3ac3-0000-000000000000
+  name: 执行JsonPath查询/success/缓存GatewayId
+  source id: 86ce93ac-4c08-3fac-0000-000000000000
+  source relationship names:
+  - success
+  destination id: 97052b82-dad9-3ba0-0000-000000000000  
+- id: 369dedb5-d804-38a5-0000-000000000000
+  name: 定时从缓存中读取焊机编号/success/http调用任务接口获取焊机模式
+  source id: 4eca931a-ced3-37ac-0000-000000000000
+  source relationship names:
+  - success
+  destination id: fd895e79-4a72-3211-0000-000000000000
+- id: 870281b6-6085-30cc-0000-000000000000
+  name: http调用任务接口获取焊机模式/Response/根据内容路由
+  source id: fd895e79-4a72-3211-0000-000000000000
+  source relationship names:
+  - Response
+  destination id: f3ea964b-28b0-3f8f-0000-000000000000
+- id: e7c30237-0b87-3636-0000-000000000000
+  name: 根据内容路由/hasTask/拆分json
+  source id: f3ea964b-28b0-3f8f-0000-000000000000
+  source relationship names:
+  - hasTask
+  destination id: 9a9296f4-dbe1-3678-0000-000000000000
+- id: e119e241-3664-388d-0000-000000000000
+  name: 根据内容路由/unmatched/缓存焊接模式和任务id
+  source id: f3ea964b-28b0-3f8f-0000-000000000000
+  source relationship names:
+  - unmatched
+  destination id: b176d300-e53c-3e97-0000-000000000000
+- id: 1fe6ba1e-3560-38ec-0000-000000000000
+  name: 拆分json/split/执行JsonPath查询
+  source id: 9a9296f4-dbe1-3678-0000-000000000000
+  source relationship names:
+  - split
+  destination id: 42e43551-e516-300d-0000-000000000000
+- id: 3c1fc64b-5730-3702-0000-000000000000
+  name: 执行JsonPath查询/success/缓存焊接模式和任务id
+  source id: 42e43551-e516-300d-0000-000000000000
+  source relationship names:
+  - success
+  destination id: b176d300-e53c-3e97-0000-000000000000  
+- id: cb935f89-56fb-3e4f-0000-000000000000
+  name: 定时http获取焊接模式/response/执行JsonPath查询
+  source id: 9b78324c-cbfb-3b50-0000-000000000000
+  source relationship names:
+  - response
+  destination id: a7325b1f-f370-372a-0000-000000000000  
+- id: a8b1c568-050e-3085-0000-000000000000
+  name: 执行JsonPath查询/success/缓存焊接模式
+  source id: a7325b1f-f370-372a-0000-000000000000
+  source relationship names:
+  - success
+  destination id: a3997b1c-ad32-3678-0000-000000000000
+Remote Process Groups: [
+  ]
+NiFi Properties Overrides: {
+  }

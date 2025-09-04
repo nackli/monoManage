@@ -1,0 +1,119 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: cpp0914
+  comment: ''
+Core Properties:
+  flow controller graceful shutdown period: 10 sec
+  flow service write delay interval: 500 ms
+  administrative yield duration: 30 sec
+  bored yield duration: 10 millis
+  max concurrent threads: 1
+  variable registry properties: ''
+FlowFile Repository:
+  implementation: org.apache.nifi.controller.repository.VolatileFlowFileRepository
+  partitions: 256
+  checkpoint interval: 2 mins
+  always sync: false
+  Swap:
+    threshold: 20000
+    in period: 5 sec
+    in threads: 1
+    out period: 5 sec
+    out threads: 4
+Content Repository:
+  implementation: org.apache.nifi.controller.repository.VolatileContentRepository
+  content claim max appendable size: 10 MB
+  content claim max flow files: 100
+  content repository archive enabled: false
+  content repository archive max retention period: 12 hours
+  content repository archive max usage percentage: 50%
+  always sync: false
+Provenance Repository:
+  provenance rollover time: 1 min
+  implementation: org.apache.nifi.provenance.VolatileProvenanceRepository
+  provenance index shard size: 500 MB
+  provenance max storage size: 1 GB
+  provenance max storage time: 24 hours
+  provenance buffer size: 10000
+Component Status Repository:
+  buffer size: 1440
+  snapshot frequency: 1 min
+Security Properties:
+  keystore: ''
+  keystore type: ''
+  keystore password: ''
+  key password: ''
+  truststore: ''
+  truststore type: ''
+  truststore password: ''
+  ssl protocol: ''
+  Sensitive Props:
+    key: ''
+    algorithm: NIFI_PBKDF2_AES_GCM_256
+Processors:
+- id: 44e88fd0-a833-3ee6-0000-000000000000
+  name: GetModbusTCP
+  class: org.apache.nifi.minifi.processors.GetModbusTCP
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 10000000
+  auto-terminated relationships list:
+  - failure
+  - monitor
+  Properties:
+    Config File: C:/minifi-cpp/modbus.json
+    Time Window Ms: 1000
+    Freq: 100
+- id: f88b3c9f-522d-3678-0000-000000000000
+  name: PublishKafka
+  class: org.apache.nifi.minifi.processors.PublishKafka
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 10000000
+  auto-terminated relationships list:
+  - success
+  - failure
+  Properties:
+    Batch Size: '1'
+    Client Name: mcpp-client
+    Compress Codec: none
+    Delivery Guarantee: '1'
+    Known Brokers: 10.90.18.131:9092
+    Message Timeout: 12 sec
+    Request Timeout: 10 sec
+    Topic Name: test-txs111111
+Controller Services:
+- id: fd0bb6e7-5bd7-3966-0000-000000000000
+  name: MemoryMapControllerService
+  type: org.apache.nifi.minifi.extensions.cache.MemoryMapControllerService
+  Properties:
+    Bucket Num: '31'
+- name: HttpContextControllerService
+  id: c32c4d44-f65f-3ad7-0000-000000000000
+  type: org.apache.nifi.minifi.processors.HttpContextControllerService
+  Properties:
+    Bucket Number: '31'
+Process Groups: [
+  ]
+Input Ports: [
+  ]
+Output Ports: [
+  ]
+Funnels: [
+  ]
+Connections:
+- id: 68555881-a7a4-31f3-0000-000000000000
+  name: GetModbusTCP/success/PublishKafka
+  source id: 44e88fd0-a833-3ee6-0000-000000000000
+  source relationship name: success
+  destination id: f88b3c9f-522d-3678-0000-000000000000
+Remote Process Groups: [
+  ]
+NiFi Properties Overrides: {
+  }

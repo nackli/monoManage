@@ -1,0 +1,49 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: MiNiFi Flow
+Processors:
+- id: 44e88fd0-a833-3ee6-0000-000000000000
+  name: GetModbusTCP
+  class: org.apache.nifi.minifi.processors.GetModbusTCP
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - failure
+  - monitor
+  Properties:
+    Config File: E:/minifi-cpp/modbus.json
+    Time Window Ms: 1000
+    Freq: 100
+- id: f88b3c9f-522d-3678-0000-000000000000
+  name: PublishKafka
+  class: org.apache.nifi.minifi.processors.PublishKafka
+  max concurrent tasks: 1
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 0 sec
+  penalization period: 30 sec
+  yield period: 1 sec
+  run duration nanos: 0
+  auto-terminated relationships list:
+  - success
+  - failure
+  Properties:
+    Batch Size: '1'
+    Client Name: mcpp-client
+    Compress Codec: none
+    Delivery Guarantee: '1'
+    Known Brokers: 127.0.0.1:9092
+    Message Timeout: 12 sec
+    Request Timeout: 10 sec
+    Topic Name: minifitest2
+Controller Services: []
+Remote Process Groups: []
+Connections:
+- id: 68555881-a7a4-31f3-0000-000000000000
+  name: GetModbusTCP/success/PublishKafka
+  source id: 44e88fd0-a833-3ee6-0000-000000000000
+  source relationship name: success
+  destination id: f88b3c9f-522d-3678-0000-000000000000

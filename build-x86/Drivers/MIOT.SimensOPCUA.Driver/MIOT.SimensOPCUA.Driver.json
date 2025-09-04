@@ -1,0 +1,333 @@
+{
+	"className": "MIOT.SimensOPCUA.Driver",
+	"driverDesc": "西门子OPC协议驱动包",
+	"version": "1.0.0",
+	"protocols": [
+		{
+			"protocolName": "SimensOPCUA",
+			"parentName": "SimensOPCUA",
+			"tagSource": 1,
+			"connectParam": [
+				{
+					"name": "ip",
+					"desc": "IP地址",
+					"formType": "input",
+					"required": true,
+					"default_value": "127.0.0.1"
+				},
+				{
+					"name": "port",
+					"desc": "端口",
+					"formType": "input",
+					"required": true,
+					"default_value": "4840",
+					"rules": [
+						{
+							"pattern": "^\\d{1,5}$",
+							"message": "请输入 0~65535 的数字"
+						}
+					]
+				},
+				{
+					"name": "timeout",
+					"desc": "连接超时(毫秒)",
+					"formType": "input",
+					"required": true,
+					"default_value": "5000"
+				}
+			],
+			"tagParams": [
+				{
+					"tagName": "CncType",
+					"tagDesc": "系统型号",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetCncType",
+					"calcExpr": "",
+					"tagType": 3
+				},
+				{
+					"tagName": "SerNum",
+					"tagDesc": "序列号",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetSerNum",
+					"calcExpr": "",
+					"tagType": 3
+				},
+				{
+					"tagName": "Axis",
+					"tagDesc": "伺服轴数",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int16",
+					"tagAddr": "GetAxis",
+					"calcExpr": "",
+					"tagType": 3
+				},
+				{
+					"tagName": "Status",
+					"tagDesc": "工作状态",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int16",
+					"tagAddr": "GetStatus",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "Emg",
+					"tagDesc": "急停",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int16",
+					"tagAddr": "GetEmg",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "Alarm",
+					"tagDesc": "报警",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int16",
+					"tagAddr": "GetAlarm",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "Mode",
+					"tagDesc": "工作模式",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int16",
+					"tagAddr": "GetMode",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "AxisName",
+					"tagDesc": "轴名称",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetAxisName",
+					"calcExpr": "",
+					"tagType": 3
+				},
+				{
+					"tagName": "MacPos",
+					"tagDesc": "机械坐标",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetMacPos",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "AbsPos",
+					"tagDesc": "绝对坐标",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetAbsPos",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "RelPos",
+					"tagDesc": "相对坐标",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetRelPos",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "RemPos",
+					"tagDesc": "剩余坐标",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetRemPos",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "NcStatus",
+					"tagDesc": "程序运行状态",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetNcStatus",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "MainPgm",
+					"tagDesc": "主程序",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetMainPgm",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "CurPgm",
+					"tagDesc": "当前程序",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetCurPgm",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "CutTime",
+					"tagDesc": "切削时间",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int32",
+					"tagAddr": "GetCutTime",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "CysSec",
+					"tagDesc": "加工时间",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int32",
+					"tagAddr": "GetCysSec",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "CurSeq",
+					"tagDesc": "程序行号",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetCurSeq",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "PartCnt",
+					"tagDesc": "当前产量",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "int32",
+					"tagAddr": "GetPartCnt",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "TCode",
+					"tagDesc": "刀具号",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetTCode",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "OvFeed",
+					"tagDesc": "切削倍率",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetOvFeed",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "OvSpin",
+					"tagDesc": "主轴倍率",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetOvSpin",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "ActFeed",
+					"tagDesc": "切削速度",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetActFeed",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "SetFeed",
+					"tagDesc": "切削设定速度",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetSetFeed",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "ActSpeed",
+					"tagDesc": "主轴速度",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetActSpeed",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "SetSpeed",
+					"tagDesc": "主轴设定速度",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetSetSpeed",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "SvLoad",
+					"tagDesc": "伺服负载",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetSvLoad",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "SpinLoad",
+					"tagDesc": "主轴负载",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "float",
+					"tagAddr": "GetSpinLoad",
+					"calcExpr": "",
+					"tagType": 1
+				},
+				{
+					"tagName": "AlarmMsg",
+					"tagDesc": "报警信息",
+					"changeReport": 0,
+					"attribute": 0,
+					"dataType": "string",
+					"tagAddr": "GetAlarmMsg",
+					"calcExpr": "",
+					"tagType": 1
+				}
+			]
+		}
+	]
+}

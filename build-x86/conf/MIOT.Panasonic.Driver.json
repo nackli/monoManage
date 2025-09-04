@@ -1,0 +1,38 @@
+{
+	"deviceCode": "751-001",
+	"deviceName": "Panasonic01",
+	"configs": [
+		{
+			"className": "MIOT.Panasonic.Driver",
+			"connectParam": "{\"port\":\"2000\",\"ip\":\"127.0.0.1\",\"station_id\":\"238\",\"conn_timeout\":\"2000\"}",
+			"protocolName": "Mewtocol OverTcp",
+			"tags": [
+				{
+					"calcExpr": "X/10",
+					"changeReport": 0,
+					"dataType": "int16",
+					"readInterval": 1000,
+					"tagAddr": "R1",
+					"tagName": "点位二",
+					"tagType": 1
+				}
+			]
+		},
+		{
+			"className": "MIOT.Panasonic.Driver",
+			"connectParam": "{\"port\":\"2000\",\"ip\":\"127.0.0.1\",\"station_id\":\"238\",\"conn_timeout\":\"2000\"}",
+			"protocolName": "Mewtocol OverTcp",
+			"tags": [
+				{
+					"calcExpr": "X/10",
+					"changeReport": 0,
+					"dataType": "int16",
+					"readInterval": 1000,
+					"tagAddr": "R0",
+					"tagName": "点位一",
+					"tagType": 1
+				}
+			]
+		}
+	]
+}

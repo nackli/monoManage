@@ -1,0 +1,548 @@
+//{
+//  "deviceCode": "756-008",
+//  "deviceName": "OPCUA01",
+//  "configs": [
+//    {
+//      "className": "MIOT.SimensOPCUA.Driver",
+//      "connectParam": "{\"ip\":\"172.168.171.19\",\"port\":\"4840\",\"username\":\"OpcUaClient\",\"password\":\"123456\",\"timeout\":\"5000\",\"readMode\":\"1\"}",
+//      "protocolName": "SimensOPCUA",
+//      "tags": [
+//        {
+//          "tagName": "CncType",
+//          "tagDesc": "系统型号",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetCncType",
+//          "calcExpr": "",
+//          "tagType": 3,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "SerNum",
+//          "tagDesc": "序列号",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetSerNum",
+//          "calcExpr": "",
+//          "tagType": 3,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "Axis",
+//          "tagDesc": "伺服轴数",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "int16",
+//          "tagAddr": "GetAxis",
+//          "calcExpr": "",
+//          "tagType": 3,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "Status",
+//          "tagDesc": "工作状态",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "int16",
+//          "tagAddr": "GetStatus",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "Alarm",
+//          "tagDesc": "报警",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "int16",
+//          "tagAddr": "GetAlarm",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "Mode",
+//          "tagDesc": "工作模式",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "int16",
+//          "tagAddr": "GetMode",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "AxisName",
+//          "tagDesc": "轴名称",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetAxisName",
+//          "calcExpr": "",
+//          "tagType": 3,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "MacPos",
+//          "tagDesc": "机械坐标",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetMacPos",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "AbsPos",
+//          "tagDesc": "绝对坐标",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetAbsPos",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "RelPos",
+//          "tagDesc": "相对坐标",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetRelPos",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "RemPos",
+//          "tagDesc": "剩余坐标",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetRemPos",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "NcStatus",
+//          "tagDesc": "程序运行状态",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetNcStatus",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "MainPgm",
+//          "tagDesc": "主程序",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetMainPgm",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "CurPgm",
+//          "tagDesc": "当前程序",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetCurPgm",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "CurSeq",
+//          "tagDesc": "程序行号",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetCurSeq",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "PartCnt",
+//          "tagDesc": "当前产量",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "int32",
+//          "tagAddr": "GetPartCnt",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "TCode",
+//          "tagDesc": "刀具号",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetTCode",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "OvFeed",
+//          "tagDesc": "切削倍率",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetOvFeed",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "OvSpin",
+//          "tagDesc": "主轴倍率",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetOvSpin",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "ActFeed",
+//          "tagDesc": "切削速度",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetActFeed",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "SetFeed",
+//          "tagDesc": "切削设定速度",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetSetFeed",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "ActSpeed",
+//          "tagDesc": "主轴速度",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetActSpeed",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "SetSpeed",
+//          "tagDesc": "主轴设定速度",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetSetSpeed",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "SvLoad",
+//          "tagDesc": "伺服负载",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetSvLoad",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "SpinLoad",
+//          "tagDesc": "主轴负载",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "float",
+//          "tagAddr": "GetSpinLoad",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        },
+//        {
+//          "tagName": "AlarmMsg",
+//          "tagDesc": "报警信息",
+//          "changeReport": 0,
+//          "attribute": 0,
+//          "dataType": "string",
+//          "tagAddr": "GetAlarmMsg",
+//          "calcExpr": "",
+//          "tagType": 1,
+//          "readInterval": 1000
+//        }
+//      ]
+//    }
+//  ]
+//}
+{
+  "configs": [
+    {
+      "className": "MIOT.SimensOPCUA.Driver",
+      "connectParam": "{\"productId\":\"1765945288819277825\",\"port\":\"4840\",\"ip\":\"10.8.27.165\",\"readmode\":\"1\",\"timeout\":\"5000\",\"connecttype\":2,\"username\":\"OpcUaClient\",\"password\":\"OpcUaClient\"}",
+      "protocolName": "SimensOPCUA",
+      "tags": [
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetCncType",
+          "tagName": "CncType",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetSerNum",
+          "tagName": "SerNum",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "GetAxis",
+          "tagName": "Axis",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "GetStatus",
+          "tagName": "Status",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "GetAlarm",
+          "tagName": "Alarm",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "int16",
+          "readInterval": 1000,
+          "tagAddr": "GetMode",
+          "tagName": "Mode",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetAxisName",
+          "tagName": "AxisName",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetMacPos",
+          "tagName": "MacPos",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetAbsPos",
+          "tagName": "AbsPos",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetRelPos",
+          "tagName": "RelPos",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetRemPos",
+          "tagName": "RemPos",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetNcStatus",
+          "tagName": "NcStatus",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetMainPgm",
+          "tagName": "MainPgm",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetCurPgm",
+          "tagName": "CurPgm",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetCurSeq",
+          "tagName": "CurSeq",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "int32",
+          "readInterval": 1000,
+          "tagAddr": "GetPartCnt",
+          "tagName": "PartCnt",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetTCode",
+          "tagName": "TCode",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetOvFeed",
+          "tagName": "OvFeed",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetOvSpin",
+          "tagName": "OvSpin",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetActFeed",
+          "tagName": "ActFeed",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetSetFeed",
+          "tagName": "SetFeed",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetActSpeed",
+          "tagName": "ActSpeed",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetSetSpeed",
+          "tagName": "SetSpeed",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetSvLoad",
+          "tagName": "SvLoad",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataType": "float",
+          "readInterval": 1000,
+          "tagAddr": "GetSpinLoad",
+          "tagName": "SpinLoad",
+          "tagType": 1
+        },
+        {
+          "changeReport": 1,
+          "dataLength": 10,
+          "dataType": "string",
+          "encoding": "UTF-8",
+          "readInterval": 1000,
+          "tagAddr": "GetAlarmMsg",
+          "tagName": "AlarmMsg",
+          "tagType": 1
+        }
+      ]
+    }
+  ],
+  "deviceCode": "001-037"
+}
+

@@ -1,0 +1,33 @@
+{
+  "deviceCode": "018-004",
+  "deviceName": "焊接专机",
+  "configs": [
+    {
+      "className": "MIOT.OPCUA.Driver",
+      "connectParam": "{\"address\":\"opc.tcp://10.90.255.64:49320\",\"timeout\":\"5000\",\"securityMode\":\"None\",\"securityPolicy\":\"None\",\"readMode\":\"1\"}",
+      "protocolName": "Fins Tcp",
+      "n": null,
+      "tags": [
+        {
+          "calcExpr": "X",
+          "changeReport": 0,
+          "dataType": "int16",
+          "readInterval": 100,
+          "tagAddr": "CH1.DEV.R0001",
+          "tagName": "Status",
+          "tagType": 1
+        },
+        {
+          "calcExpr": "X",
+          "changeReport": 0,
+          "dataType": "int16",
+          "readInterval": 100,
+          "tagAddr": "CH1.DEV.R0002",
+          "tagName": "WorkT",
+          "tagType": 1
+        }
+      ]
+    }
+  ]
+}
+

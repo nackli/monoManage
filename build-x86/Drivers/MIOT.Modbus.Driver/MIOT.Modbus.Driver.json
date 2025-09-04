@@ -1,0 +1,374 @@
+{
+  "className": "MIOT.Modbus.Driver",
+  "driverDesc": "Modbus协议驱动包",
+  "parentName": "MODBUS",
+  "version": "1.0.1",
+  "protocols": [
+    {
+      "protocolName": "Modbus Tcp",
+      "tagSource": 0,
+      "connectParam": [
+        {
+          "name": "ip",
+          "desc": "IP地址",
+          "formType": "input",
+          "required": true,
+          "default_value": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "desc": "端口",
+          "formType": "input",
+          "required": true,
+          "default_value": "502",
+          "rules": [
+            {
+              "pattern": "^\\d{1,5}$",
+              "message": "请输入 0~65535 的数字"
+            }
+          ]
+        },
+        {
+          "name": "station_id",
+          "desc": "站号",
+          "formType": "input",
+          "required": true,
+          "default_value": "1"
+        },
+        {
+          "name": "endian",
+          "desc": "字节顺序",
+          "formType": "select",
+          "required": false,
+          "default_value": "CDAB",
+          "option": [
+            {
+              "value": "ABCD",
+              "label": "ABCD"
+            },
+            {
+              "value": "BADC",
+              "label": "BADC"
+            },
+            {
+              "value": "CDAB",
+              "label": "CDAB"
+            },
+            {
+              "value": "DCBA",
+              "label": "DCBA"
+            }
+          ]
+        },
+        {
+          "name": "start_zero",
+          "desc": "首地址从0开始",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "batchRead",
+          "desc": "批量读取",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "isStringReverse",
+          "desc": "字符串颠倒",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "conn_timeout",
+          "desc": "连接超时(毫秒)",
+          "formType": "input",
+          "required": true,
+          "default_value": "5000"
+        }
+      ]
+    },
+    {
+      "protocolName": "Modbus Udp",
+      "tagSource": 0,
+      "connectParam": [
+        {
+          "name": "ip",
+          "desc": "IP地址",
+          "formType": "input",
+          "required": true,
+          "default_value": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "desc": "端口",
+          "formType": "input",
+          "required": true,
+          "default_value": "502",
+          "rules": [
+            {
+              "pattern": "^\\d{1,5}$",
+              "message": "请输入 0~65535 的数字"
+            }
+          ]
+        },
+        {
+          "name": "station_id",
+          "desc": "站号",
+          "formType": "input",
+          "required": true,
+          "default_value": "1"
+        },
+        {
+          "name": "endian",
+          "desc": "字节顺序",
+          "formType": "select",
+          "required": false,
+          "default_value": "CDAB",
+          "option": [
+            {
+              "value": "ABCD",
+              "label": "ABCD"
+            },
+            {
+              "value": "BADC",
+              "label": "BADC"
+            },
+            {
+              "value": "CDAB",
+              "label": "CDAB"
+            },
+            {
+              "value": "DCBA",
+              "label": "DCBA"
+            }
+          ]
+        },
+        {
+          "name": "start_zero",
+          "desc": "首地址从0开始",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "batchRead",
+          "desc": "批量读取",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "isStringReverse",
+          "desc": "字符串颠倒",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "conn_timeout",
+          "desc": "连接超时(毫秒)",
+          "formType": "input",
+          "required": true,
+          "default_value": "5000"
+        }
+      ]
+    },
+    {
+      "protocolName": "Modbus Rtu",
+      "tagSource": 0,
+      "connectParam": [
+        {
+          "name": "portName",
+          "desc": "Com口",
+          "formType": "input",
+          "default_value": "COM3",
+          "required": true
+        },
+        {
+          "name": "bautRate",
+          "desc": "波特率",
+          "formType": "input",
+          "required": true,
+          "default_value": "9600"
+        },
+        {
+          "name": "dataBits",
+          "desc": "数据位",
+          "formType": "input",
+          "required": true,
+          "default_value": "8"
+        },
+        {
+          "name": "stopBits",
+          "desc": "停止位",
+          "formType": "input",
+          "required": true,
+          "default_value": "1"
+        },
+        {
+          "name": "parity",
+          "desc": "校验方式",
+          "formType": "input",
+          "required": true,
+          "default_value": "0",
+          "option": [
+            {
+              "value": "0",
+              "label": "NONE"
+            },
+            {
+              "value": "1",
+              "label": "奇校验"
+            },
+            {
+              "value": "2",
+              "label": "偶校验"
+            }
+          ]
+        },
+        {
+          "name": "station_id",
+          "desc": "站号",
+          "formType": "input",
+          "required": true,
+          "default_value": "1"
+        },
+        {
+          "name": "start_zero",
+          "desc": "首地址从0开始",
+          "formType": "checkbox",
+          "required": true
+        },
+        {
+          "name": "batchRead",
+          "desc": "批量读取",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "isStringReverse",
+          "desc": "字符串颠倒",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "crc16",
+          "desc": "CRC16校验",
+          "formType": "checkbox",
+          "required": true
+        },
+        {
+          "name": "endian",
+          "desc": "字节顺序",
+          "formType": "select",
+          "required": false,
+          "default_value": "CDAB",
+          "option": [
+            {
+              "value": "ABCD",
+              "label": "ABCD"
+            },
+            {
+              "value": "BADC",
+              "label": "BADC"
+            },
+            {
+              "value": "CDAB",
+              "label": "CDAB"
+            },
+            {
+              "value": "DCBA",
+              "label": "DCBA"
+            }
+          ]
+        },
+        {
+          "name": "conn_timeout",
+          "desc": "连接超时(毫秒)",
+          "formType": "input",
+          "required": true,
+          "default_value": "5000"
+        }
+      ]
+    },
+    {
+      "protocolName": "Modbus Rtu OverTcp",
+      "tagSource": 0,
+      "connectParam": [
+        {
+          "name": "ip",
+          "desc": "IP地址",
+          "formType": "input",
+          "required": true
+        },
+        {
+          "name": "port",
+          "desc": "端口",
+          "formType": "input",
+          "required": true,
+          "default_value": "502",
+          "rules": [
+            {
+              "pattern": "^\\d{1,5}$",
+              "message": "请输入 0~65535 的数字"
+            }
+          ]
+        },
+        {
+          "name": "station_id",
+          "desc": "站号",
+          "formType": "input",
+          "required": true,
+          "default_value": "1"
+        },
+        {
+          "name": "endian",
+          "desc": "字节顺序",
+          "formType": "select",
+          "required": false,
+          "default_value": "CDAB",
+          "option": [
+            {
+              "value": "ABCD",
+              "label": "ABCD"
+            },
+            {
+              "value": "BADC",
+              "label": "BADC"
+            },
+            {
+              "value": "CDAB",
+              "label": "CDAB"
+            },
+            {
+              "value": "DCBA",
+              "label": "DCBA"
+            }
+          ]
+        },
+        {
+          "name": "start_zero",
+          "desc": "首地址从0开始",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "batchRead",
+          "desc": "批量读取",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "isStringReverse",
+          "desc": "字符串颠倒",
+          "formType": "checkbox",
+          "required": false
+        },
+        {
+          "name": "conn_timeout",
+          "desc": "连接超时(毫秒)",
+          "formType": "input",
+          "required": true,
+          "default_value": "5000"
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include<string.h>
 #endif
-#include <filesystem>
+//#include <filesystem>
 
 #ifdef WIN32
 #pragma comment(lib,"Bcrypt")
@@ -84,8 +84,13 @@ static MonoClass* OnInitMonoInfo(MonoDomain* hMonoDomain)
 	mono_set_dirs("C:/Program Files (x86)/Mono/lib", "C:/Program Files (x86)/Mono/etc/mono");
 	mono_config_parse("./config");
 #else
+#if 1
+	mono_set_dirs("/usr/local/lib", "/usr/local/etc/mono");
+	mono_config_parse("/usr/local/etc/mono/config");
+#else
 	mono_set_dirs("/usr/lib", "/etc/mono");
 	mono_config_parse("/etc/mono/config");
+#endif	
 #endif
 
 	//mono_set_assemblies_path("./v4.8");
@@ -299,8 +304,8 @@ static bool OnGetDeviceCode(const char *szFilePath, std::string &strDevCode)
 	if(!szFilePath)
 		return false;
 
-	std::filesystem::path filePath(szFilePath);
-	std::ifstream streamContext(filePath);
+	//std::filesystem::path filePath(szFilePath);
+	std::ifstream streamContext(szFilePath);
 	if(streamContext.is_open())
 	{
 		std::string ctxJson((std::istreambuf_iterator<char>(streamContext)), std::istreambuf_iterator<char>());

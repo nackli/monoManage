@@ -1,0 +1,745 @@
+{
+  "className": "MIOT.DesouttesSocket.Driver",
+  "driverDesc": "马头拧紧机协议驱动包",
+  "parentName": "马头拧紧机",
+  "version": "1.0.6",
+  "protocols": [
+    {
+      "protocolName": "DesouttesV3",
+      "parentName": "马头拧紧机",
+      "tagSource": 1,
+      "connectParam": [
+        {
+          "name": "ip",
+          "desc": "IP地址",
+          "formType": "input",
+          "required": true,
+          "default_value": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "desc": "端口",
+          "formType": "input",
+          "required": true,
+          "default_value": "4545",
+          "rules": [
+            {
+              "pattern": "^\\d{1,5}$",
+              "message": "请输入 0~65535 的数字"
+            }
+          ]
+        }
+      ],
+      "tagParams": [
+        {
+          "attribute": 0,
+          "calcExpr": "",
+          "changeReport": 0,
+          "dataType": "int16",
+          "tagAddr": "Status",
+          "tagDesc": "设备状态",
+          "tagName": "Status",
+          "tagType": 1
+        },
+        {
+          "tagName": "Alarm",
+          "tagDesc": "报警",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int16",
+          "tagAddr": "Alarm",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "Mode",
+          "tagDesc": "工作模式",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "Mode",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AlarmMsg",
+          "tagDesc": "报警信息",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "Alarmmsg",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ControlNum",
+          "tagDesc": "拧紧轴数",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "ControlNum",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ControlName",
+          "tagDesc": "控制器名称",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "ControlName",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TightenTime",
+          "tagDesc": "拧紧时间",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "TightenTime",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TightenStatus",
+          "tagDesc": "拧紧结果",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int",
+          "tagAddr": "TightenStatus",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TorqueToleranceUp",
+          "tagDesc": "扭矩上限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TorqueToleranceUp",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TorqueToleranceDown",
+          "tagDesc": "扭矩下限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TorqueToleranceDown",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AngleToleranceUp",
+          "tagDesc": "角度上限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "AngleToleranceUp",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AngleToleranceDown",
+          "tagDesc": "角度下限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "AngleToleranceDown",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TargetTorque",
+          "tagDesc": "预设拧紧力矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TargetTorque",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "RealTorque",
+          "tagDesc": "实际拧紧力矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "RealTorque",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "Policy",
+          "tagDesc": "策略",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "Policy",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TargetAngle",
+          "tagDesc": "预设拧紧角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TargetAngle",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "RealAngle",
+          "tagDesc": "实际拧紧角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "RealAngle",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ProgramID",
+          "tagDesc": "拧紧程序",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "ProgramID",
+          "calcExpr": "",
+          "tagType": 1
+        }
+      ]
+    },
+    {
+      "protocolName": "DesouttesV3Multi",
+      "parentName": "马头拧紧机",
+      "tagSource": 1,
+      "connectParam": [
+        {
+          "name": "ip",
+          "desc": "IP地址",
+          "formType": "input",
+          "required": true,
+          "default_value": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "desc": "端口",
+          "formType": "input",
+          "required": true,
+          "default_value": "4545",
+          "rules": [
+            {
+              "pattern": "^\\d{1,5}$",
+              "message": "请输入 0~65535 的数字"
+            }
+          ]
+        }
+      ],
+      "tagParams": [
+        {
+          "attribute": 0,
+          "calcExpr": "",
+          "changeReport": 0,
+          "dataType": "int16",
+          "tagAddr": "Status",
+          "tagDesc": "设备状态",
+          "tagName": "Status",
+          "tagType": 1
+        },
+        {
+          "tagName": "Alarm",
+          "tagDesc": "报警",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int16",
+          "tagAddr": "Alarm",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "Mode",
+          "tagDesc": "工作模式",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "Mode",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AlarmMsg",
+          "tagDesc": "报警信息",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "Alarmmsg",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ControlNum",
+          "tagDesc": "拧紧轴数",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "ControlNum",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ControlName",
+          "tagDesc": "控制器名称",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "ControlName",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TightenTime",
+          "tagDesc": "拧紧时间",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "TightenTime",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TightenStatus",
+          "tagDesc": "拧紧结果",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int",
+          "tagAddr": "TightenStatus",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TorqueToleranceUp",
+          "tagDesc": "扭矩上限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TorqueToleranceUp",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TorqueToleranceDown",
+          "tagDesc": "扭矩下限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TorqueToleranceDown",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AngleToleranceUp",
+          "tagDesc": "角度上限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "AngleToleranceUp",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AngleToleranceDown",
+          "tagDesc": "角度下限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "AngleToleranceDown",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TargetTorque",
+          "tagDesc": "预设拧紧力矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TargetTorque",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "RealTorque",
+          "tagDesc": "实际拧紧力矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "RealTorque",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "Policy",
+          "tagDesc": "策略",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "Policy",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TargetAngle",
+          "tagDesc": "预设拧紧角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TargetAngle",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "RealAngle",
+          "tagDesc": "实际拧紧角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "RealAngle",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ProgramID",
+          "tagDesc": "拧紧程序",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "ProgramID",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleNumber",
+          "tagDesc": "拧紧轴数量",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int16",
+          "tagAddr": "SpidleNumber",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleTorque1",
+          "tagDesc": "1轴扭矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleTorque(1)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleAngle1",
+          "tagDesc": "1轴角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleAngle(1)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleTorque2",
+          "tagDesc": "2轴扭矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleTorque(2)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleAngle2",
+          "tagDesc": "2轴角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleAngle(2)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleTorque3",
+          "tagDesc": "3轴扭矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleTorque(3)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleAngle3",
+          "tagDesc": "3轴角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleAngle(3)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleTorque4",
+          "tagDesc": "4轴扭矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleTorque(4)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleAngle4",
+          "tagDesc": "4轴角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleAngle(4)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleTorque5",
+          "tagDesc": "5轴扭矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleTorque(5)",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "SpidleAngle5",
+          "tagDesc": "5轴角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "SpidleAngle(5)",
+          "calcExpr": "",
+          "tagType": 1
+        }
+      ]
+    },
+    {
+      "protocolName": "DesouttesV2",
+      "parentName": "马头拧紧机",
+      "tagSource": 1,
+      "connectParam": [
+        {
+          "name": "ip",
+          "desc": "IP地址",
+          "formType": "input",
+          "required": true,
+          "default_value": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "desc": "端口",
+          "formType": "input",
+          "required": true,
+          "default_value": "4545",
+          "rules": [
+            {
+              "pattern": "^\\d{1,5}$",
+              "message": "请输入 0~65535 的数字"
+            }
+          ]
+        }
+      ],
+      "tagParams": [
+        {
+          "attribute": 0,
+          "calcExpr": "",
+          "changeReport": 0,
+          "dataType": "int16",
+          "tagAddr": "Status",
+          "tagDesc": "设备状态",
+          "tagName": "Status",
+          "tagType": 1
+        },
+        {
+          "tagName": "Alarm",
+          "tagDesc": "报警",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int16",
+          "tagAddr": "Alarm",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "Mode",
+          "tagDesc": "工作模式",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "Mode",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AlarmMsg",
+          "tagDesc": "报警信息",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "Alarmmsg",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ControlNum",
+          "tagDesc": "拧紧轴数",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "ControlNum",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ControlName",
+          "tagDesc": "控制器名称",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "ControlName",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TightenTime",
+          "tagDesc": "拧紧时间",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "string",
+          "tagAddr": "TightenTime",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TightenStatus",
+          "tagDesc": "拧紧结果",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "int",
+          "tagAddr": "TightenStatus",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TorqueToleranceUp",
+          "tagDesc": "扭矩上限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TorqueToleranceUp",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TorqueToleranceDown",
+          "tagDesc": "扭矩下限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TorqueToleranceDown",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AngleToleranceUp",
+          "tagDesc": "角度上限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "AngleToleranceUp",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "AngleToleranceDown",
+          "tagDesc": "角度下限",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "AngleToleranceDown",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TargetTorque",
+          "tagDesc": "预设拧紧力矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TargetTorque",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "RealTorque",
+          "tagDesc": "实际拧紧力矩",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "RealTorque",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "Policy",
+          "tagDesc": "策略",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "Policy",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "TargetAngle",
+          "tagDesc": "预设拧紧角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "TargetAngle",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "RealAngle",
+          "tagDesc": "实际拧紧角度",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "RealAngle",
+          "calcExpr": "",
+          "tagType": 1
+        },
+        {
+          "tagName": "ProgramID",
+          "tagDesc": "拧紧程序",
+          "changeReport": 0,
+          "attribute": 0,
+          "dataType": "float",
+          "tagAddr": "ProgramID",
+          "calcExpr": "",
+          "tagType": 1
+        }
+      ]
+    }
+  ]
+}

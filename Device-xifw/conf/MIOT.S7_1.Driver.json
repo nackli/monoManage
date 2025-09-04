@@ -1,0 +1,2873 @@
+//{
+//	"configs": [
+//		{
+//			"className": "MIOT.S7.Driver",
+//			"connectParam": "{\"collectionType\":1,\"Rack\":\"0\",\"productId\":\"1736925571234926594\",\"tempFields\":\"ip,portname,Rack,Slot,conn_timeout\",\"ip\":\"192.168.10.5\",\"portname\":\"102\",\"Slot\":\"0\",\"conn_timeout\":\"5000\"}",
+//			"protocolName": "S7-1500",
+//			"tags": [
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.6",
+//					"tagName": "C_Connect_Tank1_circ",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.7",
+//					"tagName": "C_Connect_Tank2_circ",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.1",
+//					"tagName": "1000L_Connect_Tank1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.4",
+//					"tagName": "500L_Connect_wash",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.5",
+//					"tagName": "1000L_Connect_wash",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.4",
+//					"tagName": "CIPWater_Connect_Line1_flush",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.5",
+//					"tagName": "CIPWater_Connect_Line2_flush",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2538",
+//					"tagName": "TS_Pump2_InletPipePressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.0",
+//					"tagName": "500L_Connect_Tank1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.3",
+//					"tagName": "C_Connect_Tank1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB403.4",
+//					"tagName": "500L_EMCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB307.6",
+//					"tagName": "1000L_PRPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.89.0",
+//					"tagName": "W5_VSD1106_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.0",
+//					"tagName": "W1_CA_Pressure_Low_500L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.1",
+//					"tagName": "W1_EMRG_SW_PB_500L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.2",
+//					"tagName": "W1_EMRG_SW_HMI_500L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.3",
+//					"tagName": "W1_VSD1101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.4",
+//					"tagName": "W1_VSD1102_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.5",
+//					"tagName": "W1_VSD1103_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.6",
+//					"tagName": "W1_VSD1104_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.72.7",
+//					"tagName": "W1_VSD1105_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.73.0",
+//					"tagName": "W1_VSD1106_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.73.1",
+//					"tagName": "W1_M1101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.73.2",
+//					"tagName": "W1_Oil_FLT_500L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.73.3",
+//					"tagName": "W1_VSD1104_Low",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.73.4",
+//					"tagName": "W1_VSD1105_Low",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.73.5",
+//					"tagName": "W1_PLC_Startup",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.0",
+//					"tagName": "W5_ET1101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.1",
+//					"tagName": "W5_WE1101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.2",
+//					"tagName": "W5_WE1102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.3",
+//					"tagName": "W5_VSD1101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.4",
+//					"tagName": "W5_VSD1102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.5",
+//					"tagName": "W5_VSD1103_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.6",
+//					"tagName": "W5_VSD1104_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.88.7",
+//					"tagName": "W5_VSD1105_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.89.1",
+//					"tagName": "W5_SMC1101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.89.2",
+//					"tagName": "W5_SMC1102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.89.3",
+//					"tagName": "W5_SMC1103_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.0",
+//					"tagName": "W2_CA_Pressure_Low_1000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.1",
+//					"tagName": "W2_EMRG_SW_PB_1000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.2",
+//					"tagName": "W2_EMRG_SW_HMI_1000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.3",
+//					"tagName": "W2_VSD2101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.4",
+//					"tagName": "W2_VSD2102_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.5",
+//					"tagName": "W2_VSD2103_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.6",
+//					"tagName": "W2_VSD2104_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.76.7",
+//					"tagName": "W2_VSD2105_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.0",
+//					"tagName": "W2_VSD2106_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.1",
+//					"tagName": "W2_M2101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.2",
+//					"tagName": "W2_Oil_FLT_1000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.3",
+//					"tagName": "W2_VSD2101_Low",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.4",
+//					"tagName": "W2_VSD2104_Low",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.5",
+//					"tagName": "W2_VSD2105_Low",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.6",
+//					"tagName": "W2_VSD2201_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.77.7",
+//					"tagName": "W2_PLC_Startup",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.0",
+//					"tagName": "W6_ET2101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.1",
+//					"tagName": "W6_WE2101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.2",
+//					"tagName": "W6_WE2102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.3",
+//					"tagName": "W6_WE2103_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.4",
+//					"tagName": "W6_VSD2101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.5",
+//					"tagName": "W6_VSD2102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.6",
+//					"tagName": "W6_VSD2103_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.92.7",
+//					"tagName": "W6_VSD2104_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.0",
+//					"tagName": "W6_VSD2105_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.1",
+//					"tagName": "W6_VSD2106_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.2",
+//					"tagName": "W6_VSD2201_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.3",
+//					"tagName": "W6_SMC2101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.4",
+//					"tagName": "W6_SMC2102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.5",
+//					"tagName": "W6_SMC2103_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.93.6",
+//					"tagName": "W6_SMC2104_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.0",
+//					"tagName": "W3_CA_Pressure_Low_2000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.1",
+//					"tagName": "W3_EMRG_SW_PB_2000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.2",
+//					"tagName": "W3_EMRG_SW_HMI_2000L",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.3",
+//					"tagName": "W3_VSD3101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.4",
+//					"tagName": "W3_VSD3102_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.5",
+//					"tagName": "W3_VSD3103_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.6",
+//					"tagName": "W3_VSD3104_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.80.7",
+//					"tagName": "W3_VSD3105_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.81.0",
+//					"tagName": "W3_M3101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.81.1",
+//					"tagName": "W3_PLC_Startup",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.0",
+//					"tagName": "W7_ET3101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.1",
+//					"tagName": "W7_VSD3101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.2",
+//					"tagName": "W7_VSD3102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.3",
+//					"tagName": "W7_VSD3103_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.4",
+//					"tagName": "W7_VSD3104_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.5",
+//					"tagName": "W7_VSD3105_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.6",
+//					"tagName": "W7_SMC3101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.96.7",
+//					"tagName": "W7_SMC3102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.84.0",
+//					"tagName": "W4_CA_Pressure_Low_CIP",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.84.1",
+//					"tagName": "W4_EMRG_SW_PB_CIP",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.84.2",
+//					"tagName": "W4_EMRG_SW_HMI_CIP",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.84.3",
+//					"tagName": "W4_VSD4101_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.84.4",
+//					"tagName": "W4_VSD4102_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.84.5",
+//					"tagName": "W4_PLC_Startup",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.100.0",
+//					"tagName": "W8_ET4101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.100.1",
+//					"tagName": "W8_VSD4101_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB60.100.2",
+//					"tagName": "W8_VSD4102_COMM_FLT",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3950.1",
+//					"tagName": "1000L_RotorPumpStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.26.1",
+//					"tagName": "1000L_CentPumpStart",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.424.1",
+//					"tagName": "1000L_HydOilPumpStart",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3950.0",
+//					"tagName": "1000L_RotorPumpFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.1.4",
+//					"tagName": "1000L_CentPumpFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.422.0",
+//					"tagName": "1000L_HydOilPumpFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3938",
+//					"tagName": "1000L_RotorPumpSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.44",
+//					"tagName": "1000L_RotorPumpCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.624",
+//					"tagName": "1000L_PMixTankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.682",
+//					"tagName": "1000L_CentPumpInletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2132",
+//					"tagName": "1000L_CentPumpOutletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2190",
+//					"tagName": "1000L_RotorPumpInletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3466",
+//					"tagName": "1000L_Conductivity",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3950.1",
+//					"tagName": "500L_RotorPumpStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.12.5",
+//					"tagName": "500L_CentPumpStart",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.420.1",
+//					"tagName": "500L_HydOilPumpStart",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3950.0",
+//					"tagName": "500L_RotorPumpFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.0.1",
+//					"tagName": "500L_CentPumpFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.418.0",
+//					"tagName": "500L_HydOilPumpFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3938",
+//					"tagName": "500L_RotorPumpSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.20",
+//					"tagName": "500L_RotorPumpCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.218",
+//					"tagName": "500L_CentPumpInletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1784",
+//					"tagName": "500L_CentPumpOutletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1842",
+//					"tagName": "500L_RotorPumpInletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2934.1",
+//					"tagName": "TS_Pump1_StartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.3182.1",
+//					"tagName": "TS_Pump2_StartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.43.6",
+//					"tagName": "TS_CentPump_Start",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2934.0",
+//					"tagName": "TS_Pump1_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.3182.0",
+//					"tagName": "TS_Pump2_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB9.3.1",
+//					"tagName": "TS_CentPump_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2922",
+//					"tagName": "TS_Pump1_SpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.3170",
+//					"tagName": "TS_Pump2_SpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.64",
+//					"tagName": "TS_Pump1_CurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.68",
+//					"tagName": "TS_Pump2_CurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1146",
+//					"tagName": "TS_CentPump_InletPipeTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2422",
+//					"tagName": "TS_CentPump_OutletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2480",
+//					"tagName": "TS_Pump1_InletPipePressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3454.1",
+//					"tagName": "M.T033-2#1000L_WAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3454.0",
+//					"tagName": "M.T033-2#1000L_WAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3442",
+//					"tagName": "M.T033-2#1000L_WAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.36",
+//					"tagName": "M.T033-2#1000L_WAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.508",
+//					"tagName": "M.T033-2#1000L_WTankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.740",
+//					"tagName": "M.T033-2#1000L_WTankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1958",
+//					"tagName": "M.T033-2#1000L_WTankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3814",
+//					"tagName": "M.T033-2#1000L_WTankWeighing",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.2052",
+//					"tagName": "M.T033-2#1000L_Water_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB404.4",
+//					"tagName": "M.T033-2#1000L_WaterCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB404.6",
+//					"tagName": "M.T033-2#1000L_WaterCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB304.4",
+//					"tagName": "M.T033-2#1000L_WaterPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB304.6",
+//					"tagName": "M.T033-2#1000L_WaterPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.542",
+//					"tagName": "M.T033-2#1000L_WaterCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.388",
+//					"tagName": "M.T033-2#1000L_WaterPRD_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3702.1",
+//					"tagName": "M.T033-3#1000L_OAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3702.0",
+//					"tagName": "M.T033-3#1000L_OAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3690",
+//					"tagName": "M.T033-3#1000L_OAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.40",
+//					"tagName": "M.T033-3#1000L_OAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.566",
+//					"tagName": "M.T033-3#1000L_OTankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.798",
+//					"tagName": "M.T033-3#1000L_OTankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2016",
+//					"tagName": "M.T033-3#1000L_OTankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.1540",
+//					"tagName": "M.T033-3#1000L_Oil_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB405.4",
+//					"tagName": "M.T033-3#1000L_OilCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB405.6",
+//					"tagName": "M.T033-3#1000L_OilCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB305.4",
+//					"tagName": "M.T033-3#1000L_OilPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB305.6",
+//					"tagName": "M.T033-3#1000L_OilPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.410",
+//					"tagName": "M.T033-3#1000L_OilPRD_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.564",
+//					"tagName": "M.T033-3#1000L_OilCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.2710.1",
+//					"tagName": "M.T033-4#500L_EHomoStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.2958.1",
+//					"tagName": "M.T033-4#500L_EScrapeStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3206.1",
+//					"tagName": "M.T033-4#500L_EAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.2710.0",
+//					"tagName": "M.T033-4#500L_EHomoFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.2958.0",
+//					"tagName": "M.T033-4#500L_EScrapeFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3206.0",
+//					"tagName": "M.T033-4#500L_EAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.2698",
+//					"tagName": "M.T033-4#500L_EHomoSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.2946",
+//					"tagName": "M.T033-4#500L_EScrapeSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3194",
+//					"tagName": "M.T033-4#500L_EAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.0",
+//					"tagName": "M.T033-4#500L_EHomoCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.4",
+//					"tagName": "M.T033-4#500L_EScrapeCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.8",
+//					"tagName": "M.T033-4#500L_EAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.44",
+//					"tagName": "M.T033-4#500L_ETankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.396",
+//					"tagName": "M.T033-4#500L_ETankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1610",
+//					"tagName": "M.T033-4#500L_ETankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3408",
+//					"tagName": "M.T033-4#500L_Conductivity",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3628",
+//					"tagName": "M.T033-4#500L_ETankWeighing",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB403.6",
+//					"tagName": "M.T033-4#500L_EMCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.1028",
+//					"tagName": "M.T033-4#500L_EM_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB303.4",
+//					"tagName": "M.T033-4#500L_EMPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB303.6",
+//					"tagName": "M.T033-4#500L_EMPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.520",
+//					"tagName": "M.T033-4#500L_EMCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.366",
+//					"tagName": "M.T033-4#500L_EMPRD_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.89.1",
+//					"tagName": "M.T033-11#CIP_SWPump_StartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.1138.1",
+//					"tagName": "M.T033-11#CIP_PWPump_StartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.890.0",
+//					"tagName": "M.T033-11#CIP_SWPump_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.1138.0",
+//					"tagName": "M.T033-11#CIP_PWPump_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.878.0",
+//					"tagName": "M.T033-11#CIP_SWPump_SpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.1126.0",
+//					"tagName": "M.T033-11#CIP_PWPump_SpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.72",
+//					"tagName": "M.T033-11#CIP_SWPump_CurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.76",
+//					"tagName": "M.T033-11#CIP_PWPump_CurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1378",
+//					"tagName": "M.T033-11#CIP_SWTank_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1436",
+//					"tagName": "M.T033-11#CIP_PWTank_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1494",
+//					"tagName": "M.T033-11#CIP_SWHEXOutletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1552",
+//					"tagName": "M.T033-11#CIP_PWHEXOutletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2596",
+//					"tagName": "M.T033-11#CIP_SWTankReturnPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2654",
+//					"tagName": "M.T033-11#CIP_PWTankReturnPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3292",
+//					"tagName": "M.T033-11#CIP_SWTankLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3352",
+//					"tagName": "M.T033-11#CIP_PWTankLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2712",
+//					"tagName": "M.T033-11#CIP_MainCAPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2770",
+//					"tagName": "M.T033-11#CIP_MainVacuumPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2828",
+//					"tagName": "M.T033-11#CIP_MainCWInletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2886",
+//					"tagName": "M.T033-11#CIP_MainCHWInletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2944",
+//					"tagName": "M.T033-11#CIP_MainCleanCAPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3002",
+//					"tagName": "M.T033-11#CIP_MainSteamPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3060",
+//					"tagName": "M.T033-11#CIP_MainPureSteamPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.89.1",
+//					"tagName": "M.T033-10#CIP_SWPump_StartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.1138.1",
+//					"tagName": "M.T033-10#CIP_PWPump_StartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.890.0",
+//					"tagName": "M.T033-10#CIP_SWPump_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.1138.0",
+//					"tagName": "M.T033-10#CIP_PWPump_Fault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.878.0",
+//					"tagName": "M.T033-10#CIP_SWPump_SpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB25.1126.0",
+//					"tagName": "M.T033-10#CIP_PWPump_SpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.72",
+//					"tagName": "M.T033-10#CIP_SWPump_CurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.76",
+//					"tagName": "M.T033-10#CIP_PWPump_CurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1378",
+//					"tagName": "M.T033-10#CIP_SWTank_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1436",
+//					"tagName": "M.T033-10#CIP_PWTank_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1494",
+//					"tagName": "M.T033-10#CIP_SWHEXOutletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1552",
+//					"tagName": "M.T033-10#CIP_PWHEXOutletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2596",
+//					"tagName": "M.T033-10#CIP_SWTankReturnPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2654",
+//					"tagName": "M.T033-10#CIP_PWTankReturnPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3292",
+//					"tagName": "M.T033-10#CIP_SWTankLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3352",
+//					"tagName": "M.T033-10#CIP_PWTankLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2712",
+//					"tagName": "M.T033-10#CIP_MainCAPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2770",
+//					"tagName": "M.T033-10#CIP_MainVacuumPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2828",
+//					"tagName": "M.T033-10#CIP_MainCWInletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2886",
+//					"tagName": "M.T033-10#CIP_MainCHWInletPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2944",
+//					"tagName": "M.T033-10#CIP_MainCleanCAPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3002",
+//					"tagName": "M.T033-10#CIP_MainSteamPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3060",
+//					"tagName": "M.T033-10#CIP_MainPureSteamPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.6",
+//					"tagName": "M.T033-10#CIP_Connect_Tank1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.7",
+//					"tagName": "M.T033-10#CIP_Connect_Tank2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.0",
+//					"tagName": "M.T033-10#CIP_Connect_Tank3",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.4",
+//					"tagName": "M.T033-10#CIP_Connect_Line1_clean",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.5",
+//					"tagName": "M.T033-10#CIP_Connect_Line2_clean",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB23.890.1",
+//					"tagName": "M.T033-13#1000L_PMixAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB23.890.0",
+//					"tagName": "M.T033-13#1000L_PMixAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB23.878",
+//					"tagName": "M.T033-13#1000L_PMixAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.48",
+//					"tagName": "M.T033-13#1000L_PMixAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.856",
+//					"tagName": "M.T033-13#1000L_PMixTankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2074",
+//					"tagName": "M.T033-13#1000L_PMixTankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3876",
+//					"tagName": "M.T033-13#1000L_PMixTankWeighing",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB407.4",
+//					"tagName": "M.T033-13#1000L_PRCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB407.6",
+//					"tagName": "M.T033-13#1000L_PRCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB306.6",
+//					"tagName": "M.T033-13#1000L_EMPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB307.4",
+//					"tagName": "M.T033-13#1000L_PRPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.608",
+//					"tagName": "M.T033-13#1000L_PRCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.454",
+//					"tagName": "M.T033-13#1000L_PRPRD_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3702.1",
+//					"tagName": "M.T033-6#500L_OTankAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3702.0",
+//					"tagName": "M.T033-6#500L_OTankAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3690",
+//					"tagName": "M.T033-6#500L_OTankAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.16",
+//					"tagName": "M.T033-6#500L_OTankAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.160",
+//					"tagName": "M.T033-6#500L_OTankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.334",
+//					"tagName": "M.T033-6#500L_OTankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1726",
+//					"tagName": "M.T033-6#500L_OTankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB402.4",
+//					"tagName": "M.T033-6#500L_OilCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB402.6",
+//					"tagName": "M.T033-6#500L_OilCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.498",
+//					"tagName": "M.T033-6#500L_OilCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB302.4",
+//					"tagName": "M.T033-6#500L_OilPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB302.6",
+//					"tagName": "M.T033-6#500L_OilPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.344",
+//					"tagName": "M.T033-6#500L_OilPRD_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.4",
+//					"tagName": "M.T033-6#500L_Oil_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2686.1",
+//					"tagName": "M.T033-9#TS_TankC_AgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2686.0",
+//					"tagName": "M.T033-9#TS_TankC_AgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2674",
+//					"tagName": "M.T033-9#TS_TankC_AgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.60",
+//					"tagName": "M.T033-9#TS_TankC_AgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1088",
+//					"tagName": "M.T033-9#TS_TankC_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1320",
+//					"tagName": "M.T033-9#TS_TankC_ChillWaterInletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2364",
+//					"tagName": "M.T033-9#TS_TankC_Pressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3234",
+//					"tagName": "M.T033-9#TS_TankC_LiquidLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.2",
+//					"tagName": "M.T033-9#500L_Connect_Tank3",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.5",
+//					"tagName": "M.T033-9#C_Connect_Tank3",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.0",
+//					"tagName": "M.T033-9#C_Connect_Tank3_circ",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.3",
+//					"tagName": "M.T033-9#1000L_Connect_Tank3",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.0",
+//					"tagName": "M.T033-9#Tank3_Connect_Line1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.3",
+//					"tagName": "M.T033-9#Tank3_Connect_Line2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.0",
+//					"tagName": "M.T033-9#CIP_Connect_Tank3",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.3",
+//					"tagName": "M.T033-9#Tank3_Discharge",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.4100",
+//					"tagName": "M.T033-9#TS_Tank3_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2438.1",
+//					"tagName": "M.T033-8#TS_TankB_AgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.24.38.0",
+//					"tagName": "M.T033-8#TS_TankB_AgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2426",
+//					"tagName": "M.T033-8#TS_TankB_AgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.56",
+//					"tagName": "M.T033-8#TS_TankB_AgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1030",
+//					"tagName": "M.T033-8#TS_TankB_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1262",
+//					"tagName": "M.T033-8#TS_TankB_ChillWaterInletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2306",
+//					"tagName": "M.T033-8#TS_TankB_Pressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3176",
+//					"tagName": "M.T033-8#TS_TankB_LiquidLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.1",
+//					"tagName": "M.T033-8#500L_Connect_Tank2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.0.4",
+//					"tagName": "M.T033-8#C_Connect_Tank2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.2",
+//					"tagName": "M.T033-8#1000L_Connect_Tank2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.7",
+//					"tagName": "M.T033-8#Tank2_Connect_Line1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.2",
+//					"tagName": "M.T033-8#Tank2_Connect_Line2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.7",
+//					"tagName": "M.T033-8#CIP_Connect_Tank2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.2",
+//					"tagName": "M.T033-8#Tank2_Discharge",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.3588",
+//					"tagName": "M.T033-8#TS_Tank2_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2190.1",
+//					"tagName": "M.T033-7#TS_TankA_AgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2190.0",
+//					"tagName": "M.T033-7#TS_TankA_AgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB24.2178",
+//					"tagName": "M.T033-7#TS_TankA_AgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.52",
+//					"tagName": "M.T033-7#TS_TankA_AgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.972",
+//					"tagName": "M.T033-7#TS_TankA_Temp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1204",
+//					"tagName": "M.T033-7#TS_TankA_ChillWaterInletTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.2248",
+//					"tagName": "M.T033-7#TS_TankA_Pressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3118",
+//					"tagName": "M.T033-7#TS_TankA_LiquidLevel",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.1.6",
+//					"tagName": "M.T033-7#Tank1_Connect_Line1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.1",
+//					"tagName": "M.T033-7#Tank1_Connect_Line2",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.2.6",
+//					"tagName": "M.T033-7#CIP_Connect_Tank1",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB850.3.1",
+//					"tagName": "M.T033-7#Tank1_Discharge",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.3076",
+//					"tagName": "M.T033-7#TS_Tank1_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3454.1",
+//					"tagName": "M.T033-5#500L_WTankAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3454.0",
+//					"tagName": "M.T033-5#500L_WTankAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB21.3442",
+//					"tagName": "M.T033-5#500L_WTankAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.12",
+//					"tagName": "M.T033-5#500L_WTankAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.102",
+//					"tagName": "M.T033-5#500L_WTankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.276",
+//					"tagName": "M.T033-5#500L_WTankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1668",
+//					"tagName": "M.T033-5#500L_WTankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3690",
+//					"tagName": "M.T033-5#500L_WTankWeighing",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB401.4",
+//					"tagName": "M.T033-5#500L_WaterCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB401.6",
+//					"tagName": "M.T033-5#500L_WaterCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.476",
+//					"tagName": "M.T033-5#500L_WaterCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB301.4",
+//					"tagName": "M.T033-5#500L_WaterPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB301.6",
+//					"tagName": "M.T033-5#500L_WaterPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.322",
+//					"tagName": "M.T033-5#500L_WaterPRD_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.516",
+//					"tagName": "M.T033-5#500L_Water_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.2210.1",
+//					"tagName": "M.T033-1#1000L_EHomoStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.2968.1",
+//					"tagName": "M.T033-1#1000L_EScrapeStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3206.1",
+//					"tagName": "M.T033-1#1000L_EAgitateStartFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.2710.0",
+//					"tagName": "M.T033-1#1000L_EHomoFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.2958.0",
+//					"tagName": "M.T033-1#1000L_EScrapeFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "bool",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3206.0",
+//					"tagName": "M.T033-1#1000L_EAgitateFault",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.2698",
+//					"tagName": "M.T033-1#1000L_EHomoSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.2946",
+//					"tagName": "M.T033-1#1000L_EScrapeSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB22.3194",
+//					"tagName": "M.T033-1#1000L_EAgitateSpeedFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.24",
+//					"tagName": "M.T033-1#1000L_EHomoCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.28",
+//					"tagName": "M.T033-1#1000L_EScrapeCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1051.32",
+//					"tagName": "M.T033-1#1000L_EAgitateCurrFB",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.450",
+//					"tagName": "M.T033-1#1000L_ETankTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.914",
+//					"tagName": "M.T033-1#1000L_ETankChillTemp",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.1900",
+//					"tagName": "M.T033-1#1000L_ETankPressure",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3582",
+//					"tagName": "M.T033-1#1000L_ETankFlowMeter",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "float",
+//					"readInterval": 1000,
+//					"tagAddr": "DB11.3752",
+//					"tagName": "M.T033-1#1000L_ETankWeighing",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "Unicode-big",
+//					"readInterval": 1000,
+//					"tagAddr": "DB89.2564",
+//					"tagName": "M.T033-1#1000L_EM_BatchNumber",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB406.4",
+//					"tagName": "M.T033-1#1000L_EMCIP_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB406.6",
+//					"tagName": "M.T033-1#1000L_EMCIP_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB306.4",
+//					"tagName": "M.T033-1#1000L_EMPRD_Steps",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 0,
+//					"dataType": "int16",
+//					"readInterval": 1000,
+//					"tagAddr": "DB306.6",
+//					"tagName": "M.T033-1#1000L_EMPRD_Status",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.586",
+//					"tagName": "M.T033-1#1000L_EMCIP_Recipe",
+//					"tagType": 1
+//				},
+//				{
+//					"changeReport": 1,
+//					"dataLength": 20,
+//					"dataType": "string",
+//					"encoding": "ASCII",
+//					"readInterval": 1000,
+//					"tagAddr": "DB1000.432",
+//					"tagName": "M.T033-1#1000L_EMPRD_Recipe",
+//					"tagType": 1
+//				}
+//			]
+//		}
+//	],
+//	"deviceCode": "M.T033"
+//}
+{
+  "className": "MIOT.S7.Driver",
+  "deviceName": null,
+  "parentDeviceCode": "585-068",
+  "childDeviceCode": "585-068-1",
+  "protocolId": null,
+  "protocolName": "S7-200SMART",
+  "connectParam": "{\"ip\":\"127.0.0.1\",\"tempFields\":\"ip,tempFields,portname\",\"portname\":\"103\",\"conn_timeout\":\"5000\"}",
+  "tagInfos": [
+    {
+      "tagName": "status",
+      "tagAddr": "Q0.5",
+      "dataType": "bool",
+      "readInterval": 1,
+      "tagType": 1,
+      "changeReport": 0,
+      "calcExpr": null,
+      "dataLength": 10,
+      "encoding": "Default",
+      "paramList": null,
+      "IsDataChange": false,
+      "IsNeedPush": false,
+      "Value": "",
+      "raw_value": "",
+      "old_value": null,
+      "StartReadTime": 0,
+      "FinishedTime": 0,
+      "errorMessage": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+MiNiFi Config Version: 3
+Flow Controller:
+  name: minifi-test02
+Processors:
+- id: 37d6e8e5-6284-423e-8620-c5168a71add7
+  name: FetchOPCProcessor
+  class: org.apache.nifi.minifi.processors.FetchOPCProcessor
+  scheduling strategy: TIMER_DRIVEN
+  scheduling period: 1 sec
+  auto-terminated relationships list:
+  - failure
+  - success
+  Properties:
+    OPC server endpoint: opc.tcp://10.90.254.215:49320
+    Node ID: ch1.d1.t1
+    Node ID type: String
+    Namespace index: 2
+Controller Services: []
+Remote Processing Groups: []
