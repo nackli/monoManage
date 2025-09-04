@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -O2 -fPIC  -g CMakeFiles/monoDevCtrl_test.dir/AppWatchDog.cpp.o CMakeFiles/monoDevCtrl_test.dir/MonoCtrl.cpp.o CMakeFiles/monoDevCtrl_test.dir/TestDemo.cpp.o -o monoDevCtrl_test  -lmono-2.0 -lzmq 

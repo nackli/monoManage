@@ -1,2 +1,0 @@
-/root/Tool/gcc-aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-ar qc libmonoDevCtrl.a CMakeFiles/monoDevCtrl.dir/AppWatchDog.cpp.o CMakeFiles/monoDevCtrl.dir/MonoCtrl.cpp.o CMakeFiles/monoDevCtrl.dir/TestDemo.cpp.o
-/root/Tool/gcc-aarch64-linux-gnu-7.3/bin/aarch64-linux-gnu-ranlib libmonoDevCtrl.a

@@ -1,4 +1,0 @@
-/root/work/monoManage/build_aarch/CMakeFiles/monoDevCtrl.dir
-/root/work/monoManage/build_aarch/CMakeFiles/monoDevCtrl_test.dir
-/root/work/monoManage/build_aarch/CMakeFiles/edit_cache.dir
-/root/work/monoManage/build_aarch/CMakeFiles/rebuild_cache.dir
